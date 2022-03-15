@@ -115,6 +115,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @param moduleConfiguration.eventsDispatcher - Editor's event dispatcher
    */
   constructor({ config, eventsDispatcher }: ModuleConfig) {
+    console.log('toolbar index.ts constructor');
     super({
       config,
       eventsDispatcher,
@@ -154,6 +155,8 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @returns {boolean}
    */
   public get opened(): boolean {
+    console.log('toolbar index.ts opened');
+
     return this.nodes.wrapper.classList.contains(this.CSS.toolbarOpened);
   }
 
@@ -163,6 +166,8 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @returns {{hide: function(): void, show: function(): void}}
    */
   public get plusButton(): { hide: () => void; show: () => void } {
+    console.log('toolbar index.ts plusButton');
+
     return {
       hide: (): void => this.nodes.plusButton.classList.add(this.CSS.plusButtonHidden),
       show: (): void => {
@@ -222,6 +227,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @param {boolean} readOnlyEnabled - read-only mode
    */
   public toggleReadOnly(readOnlyEnabled: boolean): void {
+    console.log('toolbar index.ts toggleReadOnly', readOnlyEnabled);
     if (!readOnlyEnabled) {
       this.drawUI();
       this.enableModuleBindings();
@@ -238,6 +244,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @param block - block to move Toolbar near it
    */
   public moveAndOpen(block: Block = this.Editor.BlockManager.currentBlock): void {
+    console.log('toolbar index.ts moveAndOpen');
     /**
      * Close Toolbox when we move toolbar
      */
@@ -332,6 +339,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * Draws Toolbar elements
    */
   private make(): void {
+    console.log('toolbar index.ts make() 342');
     this.nodes.wrapper = $.make('div', this.CSS.toolbar);
 
     /**
@@ -345,8 +353,10 @@ export default class Toolbar extends Module<ToolbarNodes> {
      * Actions will be included to the toolbar content so we can align in to the right of the content
      */
     $.append(this.nodes.wrapper, this.nodes.content);
+    console.log('this.nodes.wrapper', this.nodes.wrapper);
+    console.log('this.nodes.content', this.nodes.content);
+    console.log('this.nodes.actions', this.nodes.actions);
     $.append(this.nodes.content, this.nodes.actions);
-
     /**
      * Fill Content Zone:
      *  - Plus Button
@@ -387,6 +397,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
 
     $.append(this.nodes.settingsToggler, settingsIcon);
     $.append(this.nodes.blockActionsButtons, this.nodes.settingsToggler);
+    console.log('this.nodes.blockActionsButtons', this.nodes.blockActionsButtons);
     $.append(this.nodes.actions, this.nodes.blockActionsButtons);
 
     this.tooltip.onHover(
@@ -400,12 +411,15 @@ export default class Toolbar extends Module<ToolbarNodes> {
     /**
      * Appending Toolbar components to itself
      */
+    // const myMenu = document.querySelector('.ce-example__header-menu');
+    // $.append(myMenu, this.makeToolbox());
     $.append(this.nodes.content, this.makeToolbox());
     $.append(this.nodes.actions, this.Editor.BlockSettings.nodes.wrapper);
 
     /**
      * Append toolbar to the Editor
      */
+    // const myMenu = document.querySelector('.ce-example__header-menu');
     $.append(this.Editor.UI.nodes.wrapper, this.nodes.wrapper);
   }
 
@@ -416,6 +430,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
     /**
      * Make the Toolbox
      */
+    console.log('toolbar index.ts makeToolbox() ', this.Editor.Tools.blockTools);
     this.toolboxInstance = new Toolbox({
       api: this.Editor.API.methods,
       tools: this.Editor.Tools.blockTools,
@@ -496,7 +511,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
       if (this.Editor.BlockSettings.opened || this.toolboxInstance.opened) {
         return;
       }
-
+      console.log('toolbar index.ts 504');
       this.moveAndOpen(data.block);
     });
   }

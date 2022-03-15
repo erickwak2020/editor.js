@@ -242,6 +242,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    * @param {BlockToolConstructable} tool - BlockTool object
    */
   private addTool(tool: BlockTool): void {
+    console.log('toolbox.ts addTool()', tool);
     const toolToolboxSettings = tool.toolbox;
 
     /**
@@ -382,6 +383,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    * @param {string} toolName - Tool name
    */
   private insertNewBlock(toolName: string): void {
+    console.log('toolbox.ts insertNewBlock');
     const currentBlockIndex = this.api.blocks.getCurrentBlockIndex();
     const currentBlock = this.api.blocks.getBlockByIndex(currentBlockIndex);
 

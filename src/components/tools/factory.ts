@@ -39,6 +39,7 @@ export default class ToolsFactory {
     editorConfig: EditorConfig,
     api: API
   ) {
+    console.log('ToolsFactory constructor');
     this.api = api;
     this.config = config;
     this.editorConfig = editorConfig;
@@ -50,6 +51,7 @@ export default class ToolsFactory {
    * @param name - tool name
    */
   public get(name: string): InlineTool | BlockTool | BlockTune {
+    console.log('ToolsFactory constructor get ', name);
     const { class: constructable, isInternal = false, ...config } = this.config[name];
 
     const Constructor = this.getConstructor(constructable);

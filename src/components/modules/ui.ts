@@ -186,6 +186,7 @@ export default class UI extends Module<UINodes> {
    * @param {boolean} readOnlyEnabled - "read only" state
    */
   public toggleReadOnly(readOnlyEnabled: boolean): void {
+    console.log('ui.ts toggleReadOnly 189');
     /**
      * Prepare components based on read-only state
      */

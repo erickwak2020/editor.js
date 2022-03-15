@@ -64,6 +64,7 @@ export default class ReadOnly extends Module {
    * @param {boolean} state - (optional) read-only state or toggle
    */
   public async toggle(state = !this.readOnlyEnabled): Promise<boolean> {
+    console.log('readonly.ts toggle async');
     if (state && this.toolsDontSupportReadOnly.length > 0) {
       this.throwCriticalError();
     }

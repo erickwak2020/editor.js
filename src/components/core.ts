@@ -74,6 +74,7 @@ export default class Core {
       onFail = reject;
     });
 
+    console.log('core.ts init....');
     Promise.resolve()
       .then(async () => {
         this.configuration = config;
@@ -121,6 +122,7 @@ export default class Core {
    * @param {EditorConfig|string} config - Editor's config to set
    */
   public set configuration(config: EditorConfig|string) {
+    console.log('Core.tx : set configuration ', config);
     /**
      * Place config into the class property
      *
@@ -283,6 +285,7 @@ export default class Core {
    * @returns {Promise<void>}
    */
   public async start(): Promise<void> {
+    console.log('core.ts start()');
     const modulesToPrepare = [
       'Tools',
       'UI',

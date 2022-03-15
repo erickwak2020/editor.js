@@ -92,6 +92,7 @@ export default class BlockSettings extends Module<BlockSettingsNodes> {
    *  - Default Settings [Move, Remove, etc]
    */
   public make(): void {
+    console.log('blockSettings.ts make()');
     this.nodes.wrapper = $.make('div', this.CSS.wrapper);
 
     this.nodes.toolSettings = $.make('div', this.CSS.toolSettings);

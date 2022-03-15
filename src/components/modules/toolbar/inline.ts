@@ -139,6 +139,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * @param [needToShowConversionToolbar] - pass false to not to show Conversion Toolbar
    */
   public tryToShow(needToClose = false, needToShowConversionToolbar = true): void {
+    console.log('inline.ts tryToShow');
     if (!this.allowedToShow()) {
       if (needToClose) {
         this.close();
@@ -156,6 +157,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Move Toolbar to the selected text
    */
   public move(): void {
+    console.log('inline.ts move() 160');
     const selectionRect = SelectionUtils.rect as DOMRect;
     const wrapperOffset = this.Editor.UI.nodes.wrapper.getBoundingClientRect();
     const newCoords = {
@@ -238,6 +240,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * @param [needToShowConversionToolbar] - pass false to not to show Conversion Toolbar
    */
   public open(needToShowConversionToolbar = true): void {
+    console.log('inline.ts open 242');
     if (this.opened) {
       return;
     }
@@ -306,6 +309,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Making DOM
    */
   private make(): void {
+    console.log('toolbar/inline make() 309');
     this.nodes.wrapper = $.make('div', [
       this.CSS.inlineToolbar,
       ...(this.isRtl ? [ this.Editor.UI.CSS.editorRtlFix ] : []),
@@ -331,10 +335,12 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     /**
      * Append the intermediary wrapper which contains toggler and buttons and button actions.
      */
+    // const myMenu = document.querySelector('.ce-example__header-menu');
     $.append(this.nodes.wrapper, [this.nodes.togglerAndButtonsWrapper, this.nodes.actions]);
     /**
      * Append the inline toolbar to the editor.
      */
+    // $.append(myMenu, this.nodes.wrapper);
     $.append(this.Editor.UI.nodes.wrapper, this.nodes.wrapper);
 
     /**

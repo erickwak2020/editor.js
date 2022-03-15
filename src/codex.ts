@@ -44,6 +44,7 @@ export default class EditorJS {
    * @param {EditorConfig|string|undefined} [configuration] - user configuration
    */
   constructor(configuration?: EditorConfig|string) {
+    console.log('codex.ts : constructor : ', configuration);
     /**
      * Set default onReady function
      */
@@ -80,6 +81,7 @@ export default class EditorJS {
    * @param {Core} editor — Editor's instance
    */
   public exportAPI(editor: Core): void {
+    console.log('codex.ts exportAPI');
     const fieldsToExport = [ 'configuration' ];
     const destroy = (): void => {
       Object.values(editor.moduleInstances)
@@ -91,7 +93,6 @@ export default class EditorJS {
         });
 
       editor = null;
-
       for (const field in this) {
         if (Object.prototype.hasOwnProperty.call(this, field)) {
           delete this[field];
@@ -102,11 +103,13 @@ export default class EditorJS {
     };
 
     fieldsToExport.forEach((field) => {
+      console.log('this, field', this, field);
       this[field] = editor[field];
     });
 
     this.destroy = destroy;
 
+    console.log('editor.moduleInstances.API.methods', editor.moduleInstances.API.methods);
     Object.setPrototypeOf(this, editor.moduleInstances.API.methods);
 
     delete this.exportAPI;
