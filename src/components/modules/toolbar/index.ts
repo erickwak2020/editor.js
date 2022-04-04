@@ -283,7 +283,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
     /**
      * Move Toolbar to the Top coordinate of Block
      */
-    this.nodes.wrapper.style.transform = `translate3D(0, ${Math.floor(toolbarY)}px, 0)`;
+    //this.nodes.wrapper.style.transform = `translate3D(0, ${Math.floor(toolbarY)}px, 0)`;
 
     /**
      * Plus Button should be shown only for __empty__ __default__ block
