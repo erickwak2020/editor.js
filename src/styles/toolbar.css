@@ -5,7 +5,7 @@
   top: 0;
   transition: opacity 100ms ease;
   will-change: opacity, transform;
-  display: none;
+  /*display: none;*/
 
   @media (--mobile) {
     @apply --overlay-pane;
@@ -75,6 +75,7 @@
     }
 
     &--opened {
+      display: none;
       opacity: 1;
     }
 
