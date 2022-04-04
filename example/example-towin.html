@@ -10,7 +10,9 @@
   <meta charset="UTF-8">
   <title>Editor.js 🤩🧦🤨 example</title>
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
-  <link href="assets/demo.css" rel="stylesheet">
+  <link rel="shortcut icon" href="#">
+  <!--<link href="assets/demo.css" rel="stylesheet">-->
+  <link href="http://dev.reflection.co.kr/ceragem/assets/web/css/common.min.css" rel="stylesheet">
   <script src="assets/json-preview.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
@@ -20,68 +22,62 @@
       document.body.classList.add("dark-mode");
     }
   </script>
-  <div class="ce-example">
+  <div class="ce-example container">
+    <section id="story" class="container-wrap">
+      <div class="layout-write-wrap">
+        <div class="ce-example__content">
+          <div id="editorjs" class="write-contents">
+            <div class="ce-example__header">
+              <a class="ce-example__header-logo" href="https://codex.so/editor">Editor.js 🤩🧦🤨</a>
 
-    <div class="ce-example__content">
-      <div id="editorjs">
-        <div class="ce-example__header">
-          <a class="ce-example__header-logo" href="https://codex.so/editor">Editor.js 🤩🧦🤨</a>
-
-          <div class="ce-example__header-menu">
-            <!--<a href="https://github.com/editor-js" target="_blank">Plugins</a>
-            <a href="https://editorjs.io/usage" target="_blank">Usage</a>
-            <a href="https://editorjs.io/configuration" target="_blank">Configuration</a>
-            <a href="https://editorjs.io/creating-a-block-tool" target="_blank">API</a>-->
+              <div class="ce-example__header-menu">
+                <!--<a href="https://github.com/editor-js" target="_blank">Plugins</a>
+                <a href="https://editorjs.io/usage" target="_blank">Usage</a>
+                <a href="https://editorjs.io/configuration" target="_blank">Configuration</a>
+                <a href="https://editorjs.io/creating-a-block-tool" target="_blank">API</a>-->
+              </div>
+            </div>
           </div>
+          <div class="ce-example__button" id="saveButton">
+            editor.save()
+          </div>
+          <div class="ce-example__statusbar">
+            <div class="ce-example__statusbar-item">
+              Readonly:
+              <b id="readonly-state">
+                Off
+              </b>
+              &nbsp;
+              <div class="ce-example__statusbar-button" id="toggleReadOnlyButton">
+                toggle
+              </div>
+            </div>
+            <div class="ce-example__statusbar-item">
+              <div class="ce-example__statusbar-button" id="showBlocksBoundariesButton">
+                <span data-toggled-text="Hide">Show</span>
+                blocks boundaries
+              </div>
+            </div>
+            <div class="ce-example__statusbar-item">
+              <div class="ce-example__statusbar-button" id="enableThinModeButton">
+                <span data-toggled-text="Disable">Enable</span>
+                thin mode
+              </div>
+            </div>
+            <div class="ce-example__statusbar-item ce-example__statusbar-item--right">
+              <div class="ce-example__statusbar-toggler" id="darkThemeToggler">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ce-example__output">
+          <pre class="ce-example__output-content" id="output"></pre>
         </div>
       </div>
-      <div class="ce-example__button" id="saveButton">
-        editor.save()
-      </div>
-      <div class="ce-example__statusbar">
-        <div class="ce-example__statusbar-item">
-          Readonly:
-          <b id="readonly-state">
-            Off
-          </b>
-          &nbsp;
-          <div class="ce-example__statusbar-button" id="toggleReadOnlyButton">
-            toggle
-          </div>
-        </div>
-        <div class="ce-example__statusbar-item">
-          <div class="ce-example__statusbar-button" id="showBlocksBoundariesButton">
-            <span data-toggled-text="Hide">Show</span>
-            blocks boundaries
-          </div>
-        </div>
-        <div class="ce-example__statusbar-item">
-          <div class="ce-example__statusbar-button" id="enableThinModeButton">
-            <span data-toggled-text="Disable">Enable</span>
-            thin mode
-          </div>
-        </div>
-        <div class="ce-example__statusbar-item ce-example__statusbar-item--right">
-          <div class="ce-example__statusbar-toggler" id="darkThemeToggler">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ce-example__output">
-      <pre class="ce-example__output-content" id="output"></pre>
-    </div>
+    </section>
   </div>
 
-  <!-- Load Tools -->
-  <!--
-   You can upload Tools to your project's directory and use as in example below.
-
-   Also you can load each Tool from CDN or use NPM/Yarn packages.
-
-   Read more in Tool's README file. For example:
-   https://github.com/editor-js/header#installation
-   -->
-  <script src="./tools/header/dist/bundle.js" onload="document.getElementById('hint-tools').hidden = true"></script><!-- Header -->
+  <script src="./tools/header/dist/bundle.js"></script><!-- Header -->
   <script src="./tools/simple-image/dist/bundle.js"></script><!-- Image -->
   <script src="./tools/delimiter/dist/bundle.js"></script><!-- Delimiter -->
   <!--  <script src="./tools/list/dist/bundle.js"></script> List-->
@@ -95,11 +91,11 @@
   <script src="./tools/raw/dist/bundle.js"></script><!-- Raw -->
   <script src="./tools/warning/dist/bundle.js"></script><!-- Warning -->
 
-  <script src="./tools/marker/dist/bundle.js"></script><!-- Marker -->
+  <!--<script src="./tools/marker/dist/bundle.js"></script>--><!-- Marker -->
   <script src="./tools/inline-code/dist/bundle.js"></script><!-- Inline Code -->
 
   <!-- Load Editor.js's Core -->
-  <script src="../dist/editor.js" onload="document.getElementById('hint-core').hidden = true;"></script>
+  <script src="../dist/editor.js"></script>
 
   <!-- Initialization -->
   <script>
@@ -123,7 +119,7 @@
        * - if true (or not specified), the order from 'tool' property will be used
        * - if an array of tool names, this order will be used
        */
-      // inlineToolbar: ['link', 'marker', 'bold', 'italic'],
+      inlineToolbar: ['link', 'bold', 'italic'],
       // inlineToolbar: true,
 
       /**
@@ -140,24 +136,32 @@
           },
           shortcut: 'CMD+SHIFT+H'
         },
-
-
-
       },
 
       /**
        * This Tool will be used as default
        */
-      // defaultBlock: 'paragraph',
+      // defaultBlock: 'header',
+
+      //autofocus: true,
 
       /**
        * Initial Editor data
        */
       data: {
         blocks: [
+          /*{
+            "id" : "Fd8rR9vAW-",
+            "type" : "header",
+            "data" : {
+              "text" : "Header Test",
+              "level" : 2
+            }
+          }*/
         ]
       },
       onReady: function(){
+        console.log('Editor.js is ready to work!');
         saveButton.click();
       },
       onChange: function(api, event) {
@@ -170,6 +174,12 @@
      */
     var editor = new EditorJS(editorConfig);
 
+    areYouReady();
+    async function areYouReady() {
+      console.log('call areYouReady()');
+      await editor.isReady;
+      console.log('isReady then() Editor.js is ready to work!');
+    }
     /**
      * Saving button
      */
