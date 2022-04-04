@@ -142,7 +142,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     console.log('inline.ts tryToShow');
     if (!this.allowedToShow()) {
       if (needToClose) {
-        this.close();
+        //this.close();
       }
 
       return;
@@ -150,7 +150,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
 
     this.move();
     this.open(needToShowConversionToolbar);
-    this.Editor.Toolbar.close();
+    //this.Editor.Toolbar.close();
   }
 
   /**
