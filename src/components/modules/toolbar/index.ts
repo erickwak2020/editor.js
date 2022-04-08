@@ -363,7 +363,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
      *  - Toolbox
      */
     this.nodes.plusButton = $.make('div', this.CSS.plusButton);
-    $.append(this.nodes.plusButton, $.svg('plus', 16, 16));
+    //$.append(this.nodes.plusButton, $.svg('plus', 16, 16));
     $.append(this.nodes.actions, this.nodes.plusButton);
 
     this.readOnlyMutableListeners.on(this.nodes.plusButton, 'click', () => {

@@ -37,6 +37,17 @@
                 <a href="https://editorjs.io/creating-a-block-tool" target="_blank">API</a>-->
               </div>
             </div>
+
+            <div class="editor-bottom-navi">
+              <div class="inner-wrap">
+                <div class="right">
+                 <div class="box-btn etc-toolbar-button">
+                    <button class="btn-sm btn-white btn-load">불러오기 <span>2</span></button>
+                    <button class="btn-sm btn-white">임시저장</button>
+                    <button class="btn-sm btn-text-xs btn-ico btn-black left">등록</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="ce-example__button" id="saveButton">
             editor.save()
@@ -80,7 +91,7 @@
   <script src="./tools/header/dist/bundle.js"></script><!-- Header -->
   <script src="./tools/simple-image/dist/bundle.js"></script><!-- Image -->
   <script src="./tools/delimiter/dist/bundle.js"></script><!-- Delimiter -->
-  <!--  <script src="./tools/list/dist/bundle.js"></script> List-->
+  <script src="./tools/list/dist/bundle.js"></script>
   <script src="./tools/nested-list/dist/nested-list.js"></script><!-- Nested List -->
   <script src="./tools/checklist/dist/bundle.js"></script><!-- Checklist -->
   <script src="./tools/quote/dist/bundle.js"></script><!-- Quote -->
@@ -113,7 +124,7 @@
        * Wrapper of Editor
        */
       holder: 'editorjs',
-
+      autofocus: true,
       /**
        * Common Inline Toolbar settings
        * - if true (or not specified), the order from 'tool' property will be used
@@ -135,6 +146,11 @@
             placeholder: 'Header'
           },
           shortcut: 'CMD+SHIFT+H'
+        },
+        list: {
+          class: List,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+L'
         },
       },
 
@@ -162,7 +178,8 @@
       },
       onReady: function(){
         console.log('Editor.js is ready to work!');
-        saveButton.click();
+        //this.inlineToolbar.init();
+        //saveButton.click();
       },
       onChange: function(api, event) {
         console.log('something changed', api, event);
@@ -179,10 +196,17 @@
       console.log('call areYouReady()');
       await editor.isReady;
       console.log('isReady then() Editor.js is ready to work!');
+      //editor.inlineToolbar.init();
+
     }
+
+    setTimeout(function() {
+      editor.inlineToolbar.init();
+    },1000);
     /**
      * Saving button
      */
+    editor.inlineToolbar.init();
     const saveButton = document.getElementById('saveButton');
 
     /**

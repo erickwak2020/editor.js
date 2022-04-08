@@ -131,6 +131,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
 
     this.api = api;
     this.tools = tools;
+    console.log('constructor : ', tools);
 
     this.tooltip = new Tooltip();
   }
@@ -248,6 +249,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    * @param {BlockToolConstructable} tool - BlockTool object
    */
   private addTool(tool: BlockTool): void {
+    /* tool 종류에 따라 넣을 곳을 분기 시길까??? */
     console.log('toolbox.ts addTool()', tool);
     const toolToolboxSettings = tool.toolbox;
 
@@ -278,8 +280,13 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
     button.innerHTML = toolToolboxSettings.icon;
 
     $.append(this.nodes.ul, button);
-
-    this.nodes.ul.appendChild(button);
+    if(tool.name === 'list') {
+      $.append(document.querySelector('.etc-toolbar-button'), button);
+    } else {
+      this.nodes.ul.appendChild(button);
+    }
+    //this.nodes.ul.appendChild(button);
+    //document.querySelector('.etc-toolbar-button').appendChild(button);
     this.nodes.buttons.push(button);
 
     /**

@@ -196,8 +196,10 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
       realRightCoord > this.Editor.UI.contentRect.right
     );
 
-    this.nodes.wrapper.style.left = Math.floor(newCoords.x) + 'px';
-    this.nodes.wrapper.style.top = Math.floor(newCoords.y) + 'px';
+    //this.nodes.wrapper.style.left = Math.floor(newCoords.x) + 'px';
+    //this.nodes.wrapper.style.top = Math.floor(newCoords.y) + 'px';
+    this.nodes.wrapper.style.left = '255px';
+    this.nodes.wrapper.style.top = '-40px';
   }
 
   /**
@@ -240,7 +242,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * @param [needToShowConversionToolbar] - pass false to not to show Conversion Toolbar
    */
   public open(needToShowConversionToolbar = true): void {
-    console.log('inline.ts open 242');
+    console.log('inline.ts open 242', this.opened);
     if (this.opened) {
       return;
     }
@@ -337,6 +339,8 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
      */
     // const myMenu = document.querySelector('.ce-example__header-menu');
     $.append(this.nodes.wrapper, [this.nodes.togglerAndButtonsWrapper, this.nodes.actions]);
+    console.log("this.node.actions , ", this.nodes.actions);
+    //$.append(document.querySelector('.etc-toolbar-button'), this.nodes.actions);
     /**
      * Append the inline toolbar to the editor.
      */
@@ -352,8 +356,8 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
      * Wrapper for the inline tools
      * Will be appended after the Conversion Toolbar toggler
      */
-    $.append(this.nodes.togglerAndButtonsWrapper, this.nodes.buttons);
-
+    //$.append(this.nodes.togglerAndButtonsWrapper, this.nodes.buttons);
+    $.append(document.querySelector('.etc-toolbar-button'), this.nodes.buttons);
     /**
      * Prepare conversion toolbar.
      * If it has any conversion tool then it will be enabled in the Inline Toolbar
@@ -512,6 +516,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Append only allowed Tools
    */
   private addToolsFiltered(): void {
+    console.log("addToolsFiltered---");
     const currentSelection = SelectionUtils.get();
     const currentBlock = this.Editor.BlockManager.getBlock(currentSelection.anchorNode as HTMLElement);
 
