@@ -263,7 +263,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
       /**
        * Change Conversion Dropdown content for current tool
        */
-      this.setConversionTogglerContent();
+      //this.setConversionTogglerContent();
     } else {
       /**
        * hide Conversion Dropdown with there are no tools
@@ -274,12 +274,12 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     /**
      * Get currently visible buttons to pass it to the Flipper
      */
-    let visibleTools = Array.from(this.buttonsList);
+    //let visibleTools = Array.from(this.buttonsList);
 
-    visibleTools.unshift(this.nodes.conversionToggler);
-    visibleTools = visibleTools.filter((tool) => !(tool as HTMLElement).hidden);
+    //visibleTools.unshift(this.nodes.conversionToggler);
+    //visibleTools = visibleTools.filter((tool) => !(tool as HTMLElement).hidden);
 
-    this.flipper.activate(visibleTools as HTMLElement[]);
+    //this.flipper.activate(visibleTools as HTMLElement[]);
   }
 
   /**

@@ -13,6 +13,7 @@
   <link rel="shortcut icon" href="#">
   <!--<link href="assets/demo.css" rel="stylesheet">-->
   <link href="http://dev.reflection.co.kr/ceragem/assets/web/css/common.min.css" rel="stylesheet">
+  <script src="http://dev.reflection.co.kr/ceragem/assets/web/js/ui.common.js?cb=1649412601037"></script>
   <script src="assets/json-preview.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
@@ -42,16 +43,16 @@
               <div class="inner-wrap">
                 <div class="right">
                  <div class="box-btn etc-toolbar-button">
-                    <button class="btn-sm btn-white btn-load">불러오기 <span>2</span></button>
-                    <button class="btn-sm btn-white">임시저장</button>
+                    <button class="btn-sm btn-white btn-load" >불러오기 <span>2</span></button>
+                    <button class="btn-sm btn-white" id="saveButton">임시저장</button>
                     <button class="btn-sm btn-text-xs btn-ico btn-black left">등록</button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="ce-example__button" id="saveButton">
+          <!--<div class="ce-example__button" id="saveButton">
             editor.save()
-          </div>
+          </div>-->
           <div class="ce-example__statusbar">
             <div class="ce-example__statusbar-item">
               Readonly:
@@ -152,6 +153,7 @@
           inlineToolbar: true,
           shortcut: 'CMD+SHIFT+L'
         },
+
       },
 
       /**
@@ -206,7 +208,7 @@
     /**
      * Saving button
      */
-    editor.inlineToolbar.init();
+    //editor.inlineToolbar.init();
     const saveButton = document.getElementById('saveButton');
 
     /**
@@ -219,6 +221,7 @@
      * Saving example
      */
     saveButton.addEventListener('click', function () {
+      console.log("======== save button ===");
       editor.save()
         .then((savedData) => {
           cPreview.show(savedData, document.getElementById("output"));
