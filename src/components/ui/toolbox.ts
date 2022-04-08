@@ -71,9 +71,11 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
   private nodes: {
     toolbox: HTMLElement;
     buttons: HTMLElement[];
+    ul: HTMLElement;
   } = {
     toolbox: null,
     buttons: [],
+    ul: null,
   }
 
   /**
@@ -146,6 +148,10 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
   public make(): Element {
     this.nodes.toolbox = $.make('div', Toolbox.CSS.toolbox);
     this.nodes.toolbox.classList.add('box-module-wrap');
+    /* ul tag 생성 */
+    /* <ul class="list-module"> */
+    this.nodes.ul = $.make('ul', 'list-module');
+    $.append(this.nodes.toolbox, this.nodes.ul);
     this.addTools();
     this.enableFlipper();
 
@@ -266,14 +272,14 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
     //   return;
     // }
 
-    const button = $.make('li', [ Toolbox.CSS.toolboxButton ]);
-
+    const button = $.make('li', '');
+    //button.classList.add('ico-post-text');
     button.dataset.tool = tool.name;
     button.innerHTML = toolToolboxSettings.icon;
 
-    $.append(this.nodes.toolbox, button);
+    $.append(this.nodes.ul, button);
 
-    this.nodes.toolbox.appendChild(button);
+    this.nodes.ul.appendChild(button);
     this.nodes.buttons.push(button);
 
     /**
