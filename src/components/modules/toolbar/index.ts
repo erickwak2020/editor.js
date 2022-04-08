@@ -283,7 +283,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
     /**
      * Move Toolbar to the Top coordinate of Block
      */
-    //this.nodes.wrapper.style.transform = `translate3D(0, ${Math.floor(toolbarY)}px, 0)`;
+    this.nodes.wrapper.style.transform = `translate3D(0, ${Math.floor(toolbarY)}px, 0)`;
 
     /**
      * Plus Button should be shown only for __empty__ __default__ block
@@ -413,7 +413,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
      */
     // const myMenu = document.querySelector('.ce-example__header-menu');
     // $.append(myMenu, this.makeToolbox());
-    $.append(this.nodes.content, this.makeToolbox());
+    $.append(this.Editor.UI.nodes.wrapper, this.makeToolbox());
     $.append(this.nodes.actions, this.Editor.BlockSettings.nodes.wrapper);
 
     /**

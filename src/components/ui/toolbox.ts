@@ -145,7 +145,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    */
   public make(): Element {
     this.nodes.toolbox = $.make('div', Toolbox.CSS.toolbox);
-
+    this.nodes.toolbox.classList.add('box-module-wrap');
     this.addTools();
     this.enableFlipper();
 

@@ -75,7 +75,7 @@
     }
 
     &--opened {
-      display: none;
+      /* display: none; */
       opacity: 1;
     }
 

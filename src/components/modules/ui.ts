@@ -65,7 +65,7 @@ export default class UI extends Module<UINodes> {
     editorLoader: string; editorEmpty: string; editorRtlFix: string;
     } {
     return {
-      editorWrapper: 'codex-editor',
+      editorWrapper: 'inner-cont-wrap',
       editorWrapperNarrow: 'codex-editor--narrow',
       editorZone: 'codex-editor__redactor',
       editorZoneHidden: 'codex-editor__redactor--hidden',
@@ -288,6 +288,7 @@ export default class UI extends Module<UINodes> {
       this.CSS.editorWrapper,
       ...(this.isRtl ? [ this.CSS.editorRtlFix ] : []),
     ]);
+    //this.nodes.wrapper.classList.add("inner-cont-wrap");
     this.nodes.redactor = $.make('div', this.CSS.editorZone);
 
     /**
