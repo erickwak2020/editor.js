@@ -198,8 +198,6 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
 
     this.nodes.wrapper.style.left = Math.floor(newCoords.x) + 'px';
     this.nodes.wrapper.style.top = Math.floor(newCoords.y) + 'px';
-    //this.nodes.wrapper.style.left = '255px';
-    //this.nodes.wrapper.style.top = '-40px';
   }
 
   /**
