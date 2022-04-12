@@ -279,9 +279,9 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
     button.dataset.tool = tool.name;
     button.innerHTML = toolToolboxSettings.icon;
 
-    $.append(this.nodes.ul, button);
+    //$.append(this.nodes.ul, button);
     if(tool.name === 'list') {
-      $.append(document.querySelector('.etc-toolbar-button'), button);
+      //$.append(document.querySelector('.etc-toolbar-button'), button);
     } else {
       this.nodes.ul.appendChild(button);
     }

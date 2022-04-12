@@ -93,6 +93,21 @@ export default class ConversionToolbar extends Module<ConversionToolbarNodes> {
     return this.nodes.wrapper;
   }
 
+  public makeConvertTools(): HTMLElement {
+    this.nodes.tools = $.make('div', ConversionToolbar.CSS.conversionToolbarTools);
+    /**
+     * Add Tools that has 'import' method
+     */
+    this.addTools();
+
+    /**
+     * Prepare Flipper to be able to leaf tools by arrows/tab
+     */
+    this.enableFlipper();
+
+    return this.nodes.tools;
+  }
+
   /**
    * Deactivates flipper and removes all nodes
    */

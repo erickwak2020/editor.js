@@ -356,6 +356,8 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
      */
     //$.append(this.nodes.togglerAndButtonsWrapper, this.nodes.buttons);
     $.append(document.querySelector('.etc-toolbar-button'), this.nodes.buttons);
+    $.append(document.querySelector('.etc-toolbar-button'), this.Editor.ConversionToolbar.makeConvertTools());
+    //this.Editor.ConversionToolbar.
     /**
      * Prepare conversion toolbar.
      * If it has any conversion tool then it will be enabled in the Inline Toolbar
