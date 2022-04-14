@@ -67,7 +67,7 @@ export default class UI extends Module<UINodes> {
     return {
       editorWrapper: 'inner-cont-wrap',
       editorWrapperNarrow: 'codex-editor--narrow',
-      editorZone: 'codex-editor__redactor',
+      editorZone: 'box-edit-wrap',
       editorZoneHidden: 'codex-editor__redactor--hidden',
       editorLoader: 'codex-editor__loader',
       editorEmpty: 'codex-editor--empty',

@@ -83,6 +83,7 @@ export default class BoldInlineTool implements InlineTool {
    * @returns {boolean}
    */
   public checkState(selection: Selection): boolean {
+    console.log("check bold state");
     const isActive = document.queryCommandState(this.commandName);
 
     this.nodes.button.classList.toggle(this.CSS.buttonActive, isActive);

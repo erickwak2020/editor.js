@@ -85,7 +85,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    */
   private static get CSS(): { [name: string]: string } {
     return {
-      toolbox: 'ce-toolbox',
+      toolbox: 'box-module-wrap',
       toolboxButton: 'ce-toolbox__button',
       toolboxButtonActive: 'ce-toolbox__button--active',
       toolboxOpened: 'ce-toolbox--opened',

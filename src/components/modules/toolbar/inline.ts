@@ -139,10 +139,10 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * @param [needToShowConversionToolbar] - pass false to not to show Conversion Toolbar
    */
   public tryToShow(needToClose = false, needToShowConversionToolbar = true): void {
-    console.log('inline.ts tryToShow');
+    // console.log('inline.ts tryToShow');
     if (!this.allowedToShow()) {
       if (needToClose) {
-        //this.close();
+        this.close();
       }
 
       return;
@@ -150,14 +150,14 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
 
     this.move();
     this.open(needToShowConversionToolbar);
-    //this.Editor.Toolbar.close();
+    // this.Editor.Toolbar.close();
   }
 
   /**
    * Move Toolbar to the selected text
    */
   public move(): void {
-    console.log('inline.ts move() 160');
+    // console.log('inline.ts move() 160');
     const selectionRect = SelectionUtils.rect as DOMRect;
     const wrapperOffset = this.Editor.UI.nodes.wrapper.getBoundingClientRect();
     const newCoords = {
@@ -203,35 +203,59 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
   /**
    * Hides Inline Toolbar
    */
+  // public close(): void {
+  // if (!this.opened) {
+  //     return;
+  // }
+  //
+  // if (this.Editor.ReadOnly.isEnabled) {
+  //     return;
+  // }
+  //
+  // this.nodes.wrapper.classList.remove(this.CSS.inlineToolbarShowed);
+  // Array.from(this.toolsInstances.entries()).forEach(([name, toolInstance]) => {
+  //     const shortcut = this.getToolShortcut(name);
+  //
+  //     if (shortcut) {
+  //       Shortcuts.remove(this.Editor.UI.nodes.redactor, shortcut);
+  //     }
+  //
+  //     /!**
+  //      * @todo replace 'clear' with 'destroy'
+  //      *!/
+  //     if (_.isFunction(toolInstance.clear)) {
+  //       toolInstance.clear();
+  //     }
+  // });
+  //
+  // this.opened = false;
+  //
+  // this.flipper.deactivate();
+  // this.Editor.ConversionToolbar.close();
+  // }
+
+  /* eric */
   public close(): void {
     if (!this.opened) {
       return;
+    }
+
+    const currentSelection = SelectionUtils.get();
+    const currentBlock = this.Editor.BlockManager.getBlock(currentSelection.anchorNode as HTMLElement);
+
+    console.log('inline.ts close ', currentBlock.tool.inlineTools);
+
+    if (this.toolsInstances) {
+      Array.from(currentBlock.tool.inlineTools.values()).forEach(tool => {
+        this.toolsInstances.get(tool.name).checkState(currentSelection);
+      });
     }
 
     if (this.Editor.ReadOnly.isEnabled) {
       return;
     }
 
-    this.nodes.wrapper.classList.remove(this.CSS.inlineToolbarShowed);
-    Array.from(this.toolsInstances.entries()).forEach(([name, toolInstance]) => {
-      const shortcut = this.getToolShortcut(name);
-
-      if (shortcut) {
-        Shortcuts.remove(this.Editor.UI.nodes.redactor, shortcut);
-      }
-
-      /**
-       * @todo replace 'clear' with 'destroy'
-       */
-      if (_.isFunction(toolInstance.clear)) {
-        toolInstance.clear();
-      }
-    });
-
     this.opened = false;
-
-    this.flipper.deactivate();
-    this.Editor.ConversionToolbar.close();
   }
 
   /**
@@ -240,7 +264,25 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * @param [needToShowConversionToolbar] - pass false to not to show Conversion Toolbar
    */
   public open(needToShowConversionToolbar = true): void {
-    console.log('inline.ts open 242', this.opened);
+    // console.log('inline.ts open 242', this.opened);
+    // console.log("inline.ts open ", this.opened, SelectionUtils.get());
+
+    const currentSelection = SelectionUtils.get();
+    const currentBlock = this.Editor.BlockManager.getBlock(currentSelection.anchorNode as HTMLElement);
+
+    console.log('inline.ts open ', currentBlock.tool.inlineTools);
+
+    if (this.toolsInstances) {
+      Array.from(currentBlock.tool.inlineTools.values()).forEach(tool => {
+        this.toolsInstances.get(tool.name).checkState(currentSelection);
+        // this.addTool(tool);
+        // console.log("tool.name", this.toolsInstances.get(tool.name).checkState(currentSelection), tool.name);
+        // this.toolsInstances.get(tool.name).checkState(currentSelection);
+        // (tool as unknown as IInlineTool).checkState(currentSelection);
+      });
+    }
+
+    // this.toolsInstances.get()
     if (this.opened) {
       return;
     }
@@ -261,7 +303,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
       /**
        * Change Conversion Dropdown content for current tool
        */
-      //this.setConversionTogglerContent();
+      // this.setConversionTogglerContent();
     } else {
       /**
        * hide Conversion Dropdown with there are no tools
@@ -272,12 +314,12 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     /**
      * Get currently visible buttons to pass it to the Flipper
      */
-    //let visibleTools = Array.from(this.buttonsList);
+    let visibleTools = Array.from(this.buttonsList);
 
-    //visibleTools.unshift(this.nodes.conversionToggler);
-    //visibleTools = visibleTools.filter((tool) => !(tool as HTMLElement).hidden);
+    // visibleTools.unshift(this.nodes.conversionToggler);
+    visibleTools = visibleTools.filter((tool) => !(tool as HTMLElement).hidden);
 
-    //this.flipper.activate(visibleTools as HTMLElement[]);
+    this.flipper.activate(visibleTools as HTMLElement[]);
   }
 
   /**
@@ -309,7 +351,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Making DOM
    */
   private make(): void {
-    console.log('toolbar/inline make() 309');
+    // console.log('toolbar/inline make() 309');
     this.nodes.wrapper = $.make('div', [
       this.CSS.inlineToolbar,
       ...(this.isRtl ? [ this.Editor.UI.CSS.editorRtlFix ] : []),
@@ -337,8 +379,8 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
      */
     // const myMenu = document.querySelector('.ce-example__header-menu');
     $.append(this.nodes.wrapper, [this.nodes.togglerAndButtonsWrapper, this.nodes.actions]);
-    console.log("this.node.actions , ", this.nodes.actions);
-    //$.append(document.querySelector('.etc-toolbar-button'), this.nodes.actions);
+    // console.log("this.node.actions , ", this.nodes.actions);
+    // $.append(document.querySelector('.etc-toolbar-button'), this.nodes.actions);
     /**
      * Append the inline toolbar to the editor.
      */
@@ -348,16 +390,16 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     /**
      * Add button that will allow switching block type
      */
-    //this.addConversionToggler();
+    // this.addConversionToggler();
 
     /**
      * Wrapper for the inline tools
      * Will be appended after the Conversion Toolbar toggler
      */
-    //$.append(this.nodes.togglerAndButtonsWrapper, this.nodes.buttons);
-    $.append(document.querySelector('.etc-toolbar-button'), this.nodes.buttons);
+    // $.append(this.nodes.togglerAndButtonsWrapper, this.nodes.buttons);
+    $.append(document.querySelector('#text-edit-module'), this.nodes.buttons);
     $.append(document.querySelector('.etc-toolbar-button'), this.Editor.ConversionToolbar.makeConvertTools());
-    //this.Editor.ConversionToolbar.
+    // this.Editor.ConversionToolbar.
     /**
      * Prepare conversion toolbar.
      * If it has any conversion tool then it will be enabled in the Inline Toolbar
@@ -516,7 +558,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Append only allowed Tools
    */
   private addToolsFiltered(): void {
-    console.log("addToolsFiltered---");
+    console.log('addToolsFiltered---');
     const currentSelection = SelectionUtils.get();
     const currentBlock = this.Editor.BlockManager.getBlock(currentSelection.anchorNode as HTMLElement);
 
