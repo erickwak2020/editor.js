@@ -4,6 +4,7 @@ import * as _ from '../utils';
 import { SanitizerConfig, ToolConfig, ToolConstructable, ToolSettings } from '../../../types';
 import BoldInlineTool from '../inline-tools/inline-tool-bold';
 import ItalicInlineTool from '../inline-tools/inline-tool-italic';
+import StrikeInlineTool from '../inline-tools/inline-tool-strike';
 import LinkInlineTool from '../inline-tools/inline-tool-link';
 import Stub from '../../tools/stub';
 import ToolsFactory from '../tools/factory';
@@ -201,6 +202,10 @@ export default class Tools extends Module {
       },
       link: {
         class: LinkInlineTool,
+        isInternal: true,
+      },
+      strike: {
+        class: StrikeInlineTool,
         isInternal: true,
       },
       paragraph: {
