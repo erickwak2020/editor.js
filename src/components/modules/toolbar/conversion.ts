@@ -93,21 +93,6 @@ export default class ConversionToolbar extends Module<ConversionToolbarNodes> {
     return this.nodes.wrapper;
   }
 
-  public makeConvertTools(): HTMLElement {
-    this.nodes.tools = $.make('div', ConversionToolbar.CSS.conversionToolbarTools);
-    /**
-     * Add Tools that has 'import' method
-     */
-    this.addTools();
-
-    /**
-     * Prepare Flipper to be able to leaf tools by arrows/tab
-     */
-    this.enableFlipper();
-
-    return this.nodes.tools;
-  }
-
   /**
    * Deactivates flipper and removes all nodes
    */
@@ -204,13 +189,17 @@ export default class ConversionToolbar extends Module<ConversionToolbarNodes> {
     const savedBlock = await this.Editor.BlockManager.currentBlock.save() as SavedData;
     const blockData = savedBlock.data;
 
+    console.log("replaceWithBlock ", currentBlockTool, currentBlockName, replacingToolName);
+
     /**
      * When current Block name is equals to the replacing tool Name,
      * than convert this Block back to the default Block
      */
     if (currentBlockName === replacingToolName) {
-      replacingToolName = this.config.defaultBlock;
+      //replacingToolName = this.config.defaultBlock;
+      return;
     }
+    //console.log("after : " ,replacingToolName);
 
     /**
      * Getting a class of replacing Tool
