@@ -843,7 +843,7 @@
                 <div class="edit-btn box-tooltip">
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="ico ico-hyperlink btn-tooltip disabled">하이퍼링크</button> -->
-                  <button class="ico ico-hyperlink btn-tooltip">하이퍼링크</button>
+                  <button class="ico ico-hyperlink btn-tooltip" id="hyperlink-btn">하이퍼링크</button>
                   <span class="tooltip">하이퍼링크</span>
                   <div class="active-toolBox editor-hyperlink-box">
                     <div class="text-input-wrap">
@@ -1284,6 +1284,19 @@
       justifyRightButton.addEventListener('click', () => {
         document.querySelector('.ce-inline-tool--justifyRight').click();
       });
+
+      const hyperlinkButton = document.getElementById("hyperlink-btn");
+      hyperlinkButton.addEventListener('click', () => {
+        //document.querySelector('.ce-inline-tool--justifyRight').click();
+        const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
+        hyperlinkBox.classList.add('active');
+        document.querySelector('.ce-inline-tool--link')?.click();
+
+        const enterEvent = new Event('keypress', { keycode: 13 });
+        //el.dispatchEvent(new Event('keypress', {keyCode: 'a'}))
+      });
+
+
 
       /*
       배경 색상 , 글자 색상
