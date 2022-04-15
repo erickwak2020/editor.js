@@ -11,6 +11,4 @@ export interface InlineToolbar {
      * Opens InlineToolbar
      */
     open(): void;
-
-    init(): void;
 }

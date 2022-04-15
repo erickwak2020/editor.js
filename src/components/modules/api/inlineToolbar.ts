@@ -15,7 +15,6 @@ export default class InlineToolbarAPI extends Module {
     return {
       close: (): void => this.close(),
       open: (): void => this.open(),
-      init: (): void => this.init(),
     };
   }
 
@@ -25,12 +24,6 @@ export default class InlineToolbarAPI extends Module {
   public open(): void {
     console.log('inlineToolbar.ts open() ');
     this.Editor.InlineToolbar.tryToShow();
-  }
-
-  public init(): void {
-    console.log('inlineToolbar.ts init()');
-    this.Editor.InlineToolbar.move();
-    this.Editor.InlineToolbar.open();
   }
   /**
    * Close Inline Toolbar

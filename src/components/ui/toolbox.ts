@@ -71,11 +71,9 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
   private nodes: {
     toolbox: HTMLElement;
     buttons: HTMLElement[];
-    ul: HTMLElement;
   } = {
     toolbox: null,
     buttons: [],
-    ul: null,
   }
 
   /**
@@ -85,7 +83,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    */
   private static get CSS(): { [name: string]: string } {
     return {
-      toolbox: 'box-module-wrap',
+      toolbox: 'ce-toolbox',
       toolboxButton: 'ce-toolbox__button',
       toolboxButtonActive: 'ce-toolbox__button--active',
       toolboxOpened: 'ce-toolbox--opened',
@@ -131,7 +129,6 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
 
     this.api = api;
     this.tools = tools;
-    console.log('constructor : ', tools);
 
     this.tooltip = new Tooltip();
   }
@@ -148,11 +145,7 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    */
   public make(): Element {
     this.nodes.toolbox = $.make('div', Toolbox.CSS.toolbox);
-    this.nodes.toolbox.classList.add('box-module-wrap');
-    /* ul tag 생성 */
-    /* <ul class="list-module"> */
-    this.nodes.ul = $.make('ul', 'list-module');
-    $.append(this.nodes.toolbox, this.nodes.ul);
+
     this.addTools();
     this.enableFlipper();
 
@@ -249,7 +242,6 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
    * @param {BlockToolConstructable} tool - BlockTool object
    */
   private addTool(tool: BlockTool): void {
-    /* tool 종류에 따라 넣을 곳을 분기 시길까??? */
     console.log('toolbox.ts addTool()', tool);
     const toolToolboxSettings = tool.toolbox;
 
@@ -269,24 +261,19 @@ export default class Toolbox extends EventsDispatcher<ToolboxEvent> {
     /**
      * @todo Add checkup for the render method
      */
-    // if (typeof tool.render !== 'function') {
-    //   _.log('render method missed. Tool %o skipped', 'warn', tool);
-    //   return;
-    // }
+      // if (typeof tool.render !== 'function') {
+      //   _.log('render method missed. Tool %o skipped', 'warn', tool);
+      //   return;
+      // }
 
-    const button = $.make('li', '');
-    //button.classList.add('ico-post-text');
+    const button = $.make('li', [ Toolbox.CSS.toolboxButton ]);
+
     button.dataset.tool = tool.name;
     button.innerHTML = toolToolboxSettings.icon;
 
-    //$.append(this.nodes.ul, button);
-    if(tool.name === 'list') {
-      //$.append(document.querySelector('.etc-toolbar-button'), button);
-    } else {
-      this.nodes.ul.appendChild(button);
-    }
-    //this.nodes.ul.appendChild(button);
-    //document.querySelector('.etc-toolbar-button').appendChild(button);
+    $.append(this.nodes.toolbox, button);
+
+    this.nodes.toolbox.appendChild(button);
     this.nodes.buttons.push(button);
 
     /**
