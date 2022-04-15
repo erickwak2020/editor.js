@@ -69,6 +69,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script><!-- Marker -->
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script><!-- Inline Code -->
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@1.12.1/dist/bundle.js"></script>
 
   <!-- Load Editor.js's Core -->
   <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
@@ -95,7 +96,7 @@
        * - if true (or not specified), the order from 'tool' property will be used
        * - if an array of tool names, this order will be used
        */
-      inlineToolbar: ['link', 'marker', 'bold', 'italic'],
+      inlineToolbar: ['link', 'marker', 'bold', 'italic', 'color'],
       // inlineToolbar: true,
 
       /**
@@ -141,9 +142,33 @@
         },
 
         warning: Warning,
-
+        color: {
+          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
+          config: {
+            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
+              ,'#E5E5E5','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
+              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
+              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
+              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
+              ,'#66541F','#255738','#275755','#25445C','#31315C'
+            ],
+            defaultColor: '#161616',
+            type: 'text',
+          }
+        },
         marker: {
-          class:  Marker,
+          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
+          config: {
+            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
+              ,'#E5E5E5','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
+              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
+              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
+              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
+              ,'#66541F','#255738','#275755','#25445C','#31315C'
+            ],
+            defaultColor: '#161616',
+            type: 'marker',
+          },
           shortcut: 'CMD+SHIFT+M'
         },
 
@@ -318,6 +343,11 @@
 
       readOnlyIndicator.textContent = readOnlyState ? 'On' : 'Off';
     });
+
+    var xy = document.querySelector('[data-tool=marker] xy-color-picker');
+
+    var color = xy.popcon.querySelector('.color-sign');
+    color.querySelector('[data-color="#EC7878"]').click();
   </script>
 </body>
 </html>

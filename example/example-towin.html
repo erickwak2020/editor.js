@@ -13,6 +13,7 @@
   <link rel="shortcut icon" href="#">
   <!--<link href="assets/demo.css" rel="stylesheet">-->
   <link href="http://dev.reflection.co.kr/ceragem/assets/web/css/common.min.css" rel="stylesheet">
+  <script src="http://dev.reflection.co.kr/ceragem/assets/web/js/lib/jquery-1.11.1.min.js"></script>
   <script src="http://dev.reflection.co.kr/ceragem/assets/web/js/ui.common.js?cb=1649412601037"></script>
   <script src="assets/json-preview.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -372,212 +373,212 @@
                     </svg>
                   </button>
                   <div class="active-toolBox editor-bg-box">
-                    <ul class="bg-color-list">
+                    <ul class="bg-color-list" id="background-color-list">
                       <li>
-                        <button class="btn-tooltip ico-bg-color pick">
+                        <button class="btn-tooltip ico-bg-color pick" data-color="#161616">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#161616"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#444">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#444"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#999">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#999"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#aaa">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#aaa"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#c4c4c4">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#c4c4c4"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color white">
+                        <button class="btn-tooltip ico-bg-color white" data-color="#FFFFFF">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="10.5" fill="white" stroke="#E5E5E5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#FF7A6B">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FF7A6B"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#FFD24D">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FFD24D"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#5DD98B">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#5DD98B"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#62D9D5">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#62D9D5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#5CAAE6">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#5CAAE6"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#7A7BE6">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#7A7BE6"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#E56F61">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#E56F61"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#ECC346">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#ECC346"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#439C64">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#439C64"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#57C0BC">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#57C0BC"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#4783B2">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#4783B2"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#5C5EAC">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#5C5EAC"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#FFCAC4">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FFCAC4"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#FFEDB8">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FFEDB8"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#BEF0D1">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#BEF0D1"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#C0F0EE">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#C0F0EE"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#BEDDF5">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#BEDDF5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#CACAF5">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#CACAF5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#66312B">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#66312B"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#66541F">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#66541F"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#255738">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#255738"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#275755">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#275755"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#25445C">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#25445C"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-bg-color">
+                        <button class="btn-tooltip ico-bg-color" data-color="#31315C">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#31315C"></circle>
                           </svg>
@@ -602,213 +603,213 @@
                       <circle cx="11" cy="11" r="11" fill="#161616"></circle>
                     </svg>
                   </button>
-                  <div class="active-toolBox editor-bg-box">
-                    <ul class="bg-color-list">
+                  <div class="active-toolBox editor-bg-box active">
+                    <ul class="bg-color-list" id="text-color-list">
                       <li>
-                        <button class="btn-tooltip ico-txt-color pick">
+                        <button class="btn-tooltip ico-txt-color pick" data-color="#161616">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#161616"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#444">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#444"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#999">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#999"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#aaa">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#aaa"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#c4c4c4">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#c4c4c4"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color white">
+                        <button class="btn-tooltip ico-txt-color white" data-color="#FFFFFF">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="10.5" fill="white" stroke="#E5E5E5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#FF7A6B">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FF7A6B"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#FFD24D">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FFD24D"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#5DD98B">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#5DD98B"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#62D9D5">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#62D9D5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#5CAAE6">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#5CAAE6"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#7A7BE6">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#7A7BE6"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#E56F61">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#E56F61"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#ECC346">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#ECC346"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#439C64">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#439C64"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#57C0BC">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#57C0BC"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#4783B2">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#4783B2"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#5C5EAC">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#5C5EAC"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#FFCAC4">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FFCAC4"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#FFEDB8">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#FFEDB8"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#BEF0D1">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#BEF0D1"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#C0F0EE">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#C0F0EE"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#BEDDF5">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#BEDDF5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#CACAF5">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#CACAF5"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#66312B">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#66312B"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#66541F">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#66541F"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#255738">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#255738"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#275755">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#275755"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#25445C">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#25445C"></circle>
                           </svg>
                         </button>
                       </li>
                       <li>
-                        <button class="btn-tooltip ico-txt-color">
+                        <button class="btn-tooltip ico-txt-color" data-color="#31315C">
                           <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="11" cy="11" r="11" fill="#31315C"></circle>
                           </svg>
@@ -901,6 +902,7 @@
 
   <!--<script src="./tools/marker/dist/bundle.js"></script>--><!-- Marker -->
   <script src="./tools/inline-code/dist/bundle.js"></script><!-- Inline Code -->
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@1.12.1/dist/bundle.js"></script>
   <!--<script src="https://cdn.jsdelivr.net/npm/editorjs-text-alignment-blocktune@latest"></script>-->
 
   <!-- Load Editor.js's Core -->
@@ -928,7 +930,7 @@
        * - if true (or not specified), the order from 'tool' property will be used
        * - if an array of tool names, this order will be used
        */
-      inlineToolbar: ['link', 'bold', 'italic', 'strike'],
+      inlineToolbar: ['link', 'bold', 'italic', 'strike', 'underline', 'color', 'marker'],
       // inlineToolbar: true,
 
       /**
@@ -950,7 +952,36 @@
           class: List,
           inlineToolbar: true,
           shortcut: 'CMD+SHIFT+L'
-        }
+        },
+        color: {
+          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
+          config: {
+            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
+              ,'#FFFFFF','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
+              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
+              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
+              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
+              ,'#66541F','#255738','#275755','#25445C','#31315C'
+            ],
+            defaultColor: '#161616',
+            type: 'text',
+          }
+        },
+        marker: {
+          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
+          config: {
+            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
+              ,'#FFFFFF','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
+              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
+              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
+              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
+              ,'#66541F','#255738','#275755','#25445C','#31315C'
+            ],
+            defaultColor: '#161616',
+            type: 'marker',
+          },
+          shortcut: 'CMD+SHIFT+M'
+        },
 
       },
 
@@ -1039,18 +1070,46 @@
       boldButton.addEventListener('click', () => {
         document.querySelector('.ce-inline-tool--bold').click();
       });
+      /* italic-btn */
+      const italicButton = document.getElementById("italic-btn");
+      italicButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--italic').click();
+      });
+      /* underline-btn */
+      const underlineButton = document.getElementById("underline-btn");
+      underlineButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--underline').click();
+      });
       /* strike-btn */
       const strikeButton = document.getElementById("strike-btn");
       strikeButton.addEventListener('click', () => {
         document.querySelector('.ce-inline-tool--strike').click();
       });
-      /*
-      //italic
-      const boldButton = document.getElementById("bold-btn");
-      boldButton.addEventListener('click', () => {
-        document.querySelector('.ce-inline-tool--bold').click();
+
+      const backgroundColorButtons = document.querySelectorAll('#background-color-list button');
+      backgroundColorButtons.forEach(function(colorButton) {
+        var color = colorButton.getAttribute('data-color');
+        colorButton.addEventListener('click', () => {
+          var xy = document.querySelector('[data-tool=marker] xy-color-picker');
+          var colorSign = xy.popcon.querySelector('.color-sign');
+          colorSign.querySelector('[data-color="' + color + '"]').click();
+        });
       });
-      */
+
+      const textColorButtons = document.querySelectorAll('#text-color-list button');
+      textColorButtons.forEach(function(colorButton) {
+        var color = colorButton.getAttribute('data-color');
+        colorButton.addEventListener('click', () => {
+          var xy = document.querySelector('[data-tool=color] xy-color-picker');
+          var colorSign = xy.popcon.querySelector('.color-sign');
+          colorSign.querySelector('[data-color="' + color + '"]').click();
+        });
+      });
+      /*
+      배경 색상 , 글자 색상
+        document.execCommand('foreColor', false, '#37B24D');
+        document.execCommand('hiliteColor', false, '#1971C2');
+       */
 
     })();
 
