@@ -329,8 +329,537 @@
                   </div>
                 </div>
               </div>
-              <div class="text-edit-module" id="text-edit-module">
-
+              <div class="text-edit-module">
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-bold disabled">B</button> -->
+                  <!--선택됐을경우 클래스 on 추가-->
+                  <button class="ico ico-bold on" id="bold-btn">B</button>
+                  <span class="tooltip">굵게</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-italic disabled">기울임</button> -->
+                  <button class="ico ico-italic" id="italic-btn">기울임</button>
+                  <span class="tooltip">기울임</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-underline disabled">밑줄선</button> -->
+                  <button class="ico ico-underline" id="underline-btn">밑줄선</button>
+                  <span class="tooltip">밑줄선</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-cancel disabled">취소선</button> -->
+                  <button class="ico ico-cancel" id="strike-btn">취소선</button>
+                  <span class="tooltip">취소선</span>
+                </div>
+                <div class="edit-btn box-tooltip">
+                  <!--
+                      선택된 경우 'pick' 클래스 추가,
+                      흰색일 경우 'white' 클래스 추가
+                  -->
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="btn-tooltip ico-bg-color pick disabled">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="11" cy="11" r="11" fill="#161616"/>
+                      </svg>
+                  </button> -->
+                  <button class="btn-tooltip ico-bg-color pick">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                    </svg>
+                  </button>
+                  <div class="active-toolBox editor-bg-box">
+                    <ul class="bg-color-list">
+                      <li>
+                        <button class="btn-tooltip ico-bg-color pick">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#444"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#999"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#aaa"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#c4c4c4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color white">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="10.5" fill="white" stroke="#E5E5E5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FF7A6B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFD24D"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5DD98B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#62D9D5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5CAAE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#7A7BE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#E56F61"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#ECC346"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#439C64"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#57C0BC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#4783B2"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5C5EAC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFCAC4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFEDB8"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEF0D1"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#C0F0EE"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEDDF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#CACAF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66312B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66541F"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#255738"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#275755"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#25445C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#31315C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="edit-btn box-tooltip">
+                  <!--
+                      선택된 경우 'pick' 클래스 추가,
+                      흰색일 경우 'white' 클래스 추가
+                  -->
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="btn-tooltip ico-txt-color pick disabled">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="11" cy="11" r="11" fill="#161616"/>
+                      </svg>
+                  </button> -->
+                  <button class="btn-tooltip ico-txt-color pick">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                    </svg>
+                  </button>
+                  <div class="active-toolBox editor-bg-box">
+                    <ul class="bg-color-list">
+                      <li>
+                        <button class="btn-tooltip ico-txt-color pick">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#444"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#999"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#aaa"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#c4c4c4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color white">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="10.5" fill="white" stroke="#E5E5E5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FF7A6B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFD24D"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5DD98B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#62D9D5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5CAAE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#7A7BE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#E56F61"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#ECC346"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#439C64"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#57C0BC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#4783B2"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5C5EAC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFCAC4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFEDB8"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEF0D1"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#C0F0EE"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEDDF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#CACAF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66312B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66541F"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#255738"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#275755"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#25445C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#31315C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="text-edit-module">
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-left disabled">왼쪽정렬</button> -->
+                  <button class="ico ico-left">왼쪽정렬</button>
+                  <span class="tooltip">왼쪽정렬</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-center disabled">중앙정렬</button> -->
+                  <button class="ico ico-center">중앙정렬</button>
+                  <span class="tooltip">중앙정렬</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-right disabled">오른쪽정렬</button> -->
+                  <button class="ico ico-right">오른쪽정렬</button>
+                  <span class="tooltip">오른쪽정렬</span>
+                </div>
+              </div>
+              <div class="text-edit-module">
+                <div class="edit-btn box-tooltip">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-hyperlink btn-tooltip disabled">하이퍼링크</button> -->
+                  <button class="ico ico-hyperlink btn-tooltip">하이퍼링크</button>
+                  <span class="tooltip">하이퍼링크</span>
+                  <div class="active-toolBox editor-hyperlink-box">
+                    <div class="text-input-wrap">
+                      <div class="box-input">
+                        <input type="text" placeholder="투표 제목 입력" title="투표 제목">
+                        <button class="ico-search-delete" style="display: none;">삭제</button>
+                      </div>
+                    </div>
+                    <div class="box-btn">
+                      <!--비활성화-->
+                      <button class="btn-sm" disabled="">삭제</button>
+                      <!--활성화-->
+                      <!-- <button class="btn-sm btn-white md-ripples ripples-darker">삭제</button> -->
+                      <button class="btn-sm btn-black md-ripples ripples-light">확인</button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -347,7 +876,7 @@
             </div>
           </div>
 
-      </div>
+        </div>
       </div>
     </section>
 
@@ -399,7 +928,7 @@
        * - if true (or not specified), the order from 'tool' property will be used
        * - if an array of tool names, this order will be used
        */
-      inlineToolbar: ['link', 'bold', 'italic'],
+      inlineToolbar: ['link', 'bold', 'italic', 'strike'],
       // inlineToolbar: true,
 
       /**
@@ -449,7 +978,6 @@
       },
       onReady: function(){
         console.log('Editor.js is ready to work!');
-        //this.inlineToolbar.init();
         //saveButton.click();
       },
       onChange: function(api, event) {
@@ -466,9 +994,7 @@
     async function areYouReady() {
       console.log('call areYouReady()');
       await editor.isReady;
-      //editor.inlineToolbar.init();
       console.log('isReady then() Editor.js is ready to work!');
-      //editor.inlineToolbar.init();
     }
 
     /**
@@ -480,8 +1006,6 @@
     /**
      * Toggle read-only button
      */
-    const toggleReadOnlyButton = document.getElementById('toggleReadOnlyButton');
-    const readOnlyIndicator = document.getElementById('readonly-state');
 
     /**
      * Saving example
@@ -497,36 +1021,39 @@
         });
     });
 
-    /**
-     * Toggle read-only example
-     */
-    toggleReadOnlyButton.addEventListener('click', async () => {
-      const readOnlyState = await editor.readOnly.toggle();
-
-      readOnlyIndicator.textContent = readOnlyState ? 'On' : 'Off';
-    });
 
     /**
      * Button for displaying blocks borders. Useful for UI development
      */
-    const showBlocksBoundariesButton = document.getElementById("showBlocksBoundariesButton");
 
-    showBlocksBoundariesButton.addEventListener('click', () => {
-      document.body.classList.toggle("show-block-boundaries")
-    })
 
     /**
      * Button for enabling the 'Thin' mode
      */
-    const enableThinModeButton = document.getElementById("enableThinModeButton");
 
-    enableThinModeButton.addEventListener('click', () => {
-      document.body.classList.toggle("thin-mode")
 
-      editor.destroy();
+    /* test */
+    (function(){
 
-      editor = new EditorJS(editorConfig);
-    });
+      const boldButton = document.getElementById("bold-btn");
+      boldButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--bold').click();
+      });
+      /* strike-btn */
+      const strikeButton = document.getElementById("strike-btn");
+      strikeButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--strike').click();
+      });
+      /*
+      //italic
+      const boldButton = document.getElementById("bold-btn");
+      boldButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--bold').click();
+      });
+      */
+
+    })();
+
 
   </script>
 </body>
