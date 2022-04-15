@@ -4,7 +4,6 @@ import * as _ from '../utils';
 import { SanitizerConfig, ToolConfig, ToolConstructable, ToolSettings } from '../../../types';
 import BoldInlineTool from '../inline-tools/inline-tool-bold';
 import ItalicInlineTool from '../inline-tools/inline-tool-italic';
-import StrikeInlineTool from '../inline-tools/inline-tool-strike';
 import LinkInlineTool from '../inline-tools/inline-tool-link';
 import Stub from '../../tools/stub';
 import ToolsFactory from '../tools/factory';
@@ -15,6 +14,11 @@ import MoveDownTune from '../block-tunes/block-tune-move-down';
 import DeleteTune from '../block-tunes/block-tune-delete';
 import MoveUpTune from '../block-tunes/block-tune-move-up';
 import ToolsCollection from '../tools/collection';
+import StrikeInlineTool from '../inline-tools/inline-tool-strike';
+import UnderlineInlineTool from '../inline-tools/inline-tool-underline';
+import JustifyCenterInlineTool from '../inline-tools/inline-tool-justify-center';
+import JustifyLeftInlineTool from '../inline-tools/inline-tool-justify-left';
+import JustifyRightInlineTool from '../inline-tools/inline-tool-justify-right';
 
 /**
  * @module Editor.js Tools Submodule
@@ -206,6 +210,22 @@ export default class Tools extends Module {
       },
       strike: {
         class: StrikeInlineTool,
+        isInternal: true,
+      },
+      underline: {
+        class: UnderlineInlineTool,
+        isInternal: true,
+      },
+      justifyCenter: {
+        class: JustifyCenterInlineTool,
+        isInternal: true,
+      },
+      justifyLeft: {
+        class: JustifyLeftInlineTool,
+        isInternal: true,
+      },
+      justifyRight: {
+        class: JustifyRightInlineTool,
         isInternal: true,
       },
       paragraph: {
