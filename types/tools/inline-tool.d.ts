@@ -29,6 +29,8 @@ export interface InlineTool extends BaseTool {
    */
   renderActions?(): HTMLElement;
 
+  renderTriggerButton?(): HTMLElement;
+
   /**
    * Function called with Inline Toolbar closing
    * @deprecated 2020 10/02 - The new instance will be created each time the button is rendered. So clear is not needed.

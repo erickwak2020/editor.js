@@ -315,7 +315,7 @@
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="btn-select btn-tooltip disabled">본문</button> -->
                   <button class="btn-select btn-tooltip">본문</button>
-                  <div class="active-toolBox editor-command-box active">
+                  <div class="active-toolBox editor-command-box">
                     <ul class="editor-command-list">
                       <li>
                         <button class="" id="change-normal-button">본문</button>
@@ -854,10 +854,10 @@
                     </div>
                     <div class="box-btn">
                       <!--비활성화-->
-                      <button class="btn-sm" disabled="">삭제</button>
+                      <button id="link-delete-btn" class="btn-sm" disabled="">삭제</button>
                       <!--활성화-->
                       <!-- <button class="btn-sm btn-white md-ripples ripples-darker">삭제</button> -->
-                      <button class="btn-sm btn-black md-ripples ripples-light">확인</button>
+                      <button id="link-save-btn" class="btn-sm btn-black md-ripples ripples-light">확인</button>
                     </div>
                   </div>
                 </div>
@@ -1016,23 +1016,8 @@
 </div>
   <script src="./tools/header/dist/bundle.js"></script><!-- Header -->
   <script src="./tools/Subheader/dist/bundle.js"></script><!-- Header -->
-  <script src="./tools/simple-image/dist/bundle.js"></script><!-- Image -->
-  <script src="./tools/delimiter/dist/bundle.js"></script><!-- Delimiter -->
-  <script src="./tools/list/dist/bundle.js"></script>
-  <script src="./tools/nested-list/dist/nested-list.js"></script><!-- Nested List -->
-  <script src="./tools/checklist/dist/bundle.js"></script><!-- Checklist -->
-  <script src="./tools/quote/dist/bundle.js"></script><!-- Quote -->
-  <script src="./tools/code/dist/bundle.js"></script><!-- Code -->
-  <script src="./tools/embed/dist/bundle.js"></script><!-- Embed -->
-  <script src="./tools/table/dist/table.js"></script><!-- Table -->
   <script src="./tools/link/dist/bundle.js"></script><!-- Link -->
-  <script src="./tools/raw/dist/bundle.js"></script><!-- Raw -->
-  <script src="./tools/warning/dist/bundle.js"></script><!-- Warning -->
-
-  <!--<script src="./tools/marker/dist/bundle.js"></script>--><!-- Marker -->
-  <script src="./tools/inline-code/dist/bundle.js"></script><!-- Inline Code -->
   <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@1.12.1/dist/bundle.js"></script>
-  <!--<script src="https://cdn.jsdelivr.net/npm/editorjs-text-alignment-blocktune@latest"></script>-->
 
   <!-- Load Editor.js's Core -->
   <script src="../dist/editor.js"></script>
@@ -1085,11 +1070,6 @@
             placeholder: 'SubHeader'
           },
           shortcut: 'CMD+SHIFT+S'
-        },
-        list: {
-          class: List,
-          inlineToolbar: true,
-          shortcut: 'CMD+SHIFT+L'
         },
         color: {
           class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
@@ -1285,18 +1265,26 @@
         document.querySelector('.ce-inline-tool--justifyRight').click();
       });
 
+      /* 작업 해야 됨 */
       const hyperlinkButton = document.getElementById("hyperlink-btn");
       hyperlinkButton.addEventListener('click', () => {
-        //document.querySelector('.ce-inline-tool--justifyRight').click();
         const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
         hyperlinkBox.classList.add('active');
+        setTimeout(function() {
+          document.querySelector('[data-tool=link]').click();
+          document.querySelector("#hyperlink-text").focus();
+          },100);
 
-        const hyperLinkText = document.querySelector('hyperlink-text').value;
+      });
+
+      const linkSaveButton = document.getElementById("link-save-btn");
+      linkSaveButton.addEventListener('click', () => {
+        const hyperLinkText = document.querySelector('#hyperlink-text').value;
         document.querySelector('.ce-inline-tool-input').value = hyperLinkText;
         var triggerBtn = document.querySelector('.trigger-btn');
         triggerBtn.click();
-        const enterEvent = new Event('keypress', { keycode: 13 });
-        //el.dispatchEvent(new Event('keypress', {keyCode: 'a'}))
+        const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
+        hyperlinkBox.classList.remove('active');
       });
 
 

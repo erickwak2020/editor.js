@@ -145,6 +145,17 @@ export default class LinkInlineTool implements InlineTool {
     return this.nodes.input;
   }
 
+  public renderTriggerButton(): HTMLElement {
+    const triggerButton = document.createElement('button') as HTMLButtonElement;
+    triggerButton.innerText = this.i18n.t('Add a link');
+    triggerButton.classList.add('trigger-btn');
+    triggerButton.addEventListener('click', () => {
+      this.enterPressed(new KeyboardEvent('keydown'));
+    });
+
+    return triggerButton;
+  }
+
   /**
    * Handle clicks on the Inline Toolbar icon
    *
@@ -158,6 +169,7 @@ export default class LinkInlineTool implements InlineTool {
       /**
        * Save selection before change focus to the input
        */
+      console.log('inline-tool-link surround', this.inputOpened);
       if (!this.inputOpened) {
         /** Create blue background instead of selection */
         this.selection.setFakeBackground();
@@ -196,6 +208,7 @@ export default class LinkInlineTool implements InlineTool {
     if (anchorTag) {
       this.nodes.button.classList.add(this.CSS.buttonUnlink);
       this.nodes.button.classList.add(this.CSS.buttonActive);
+      console.log('checkState ', selection);
       this.openActions();
 
       /**
@@ -218,7 +231,8 @@ export default class LinkInlineTool implements InlineTool {
    * Function called with Inline Toolbar closing
    */
   public clear(): void {
-    this.closeActions();
+    console.log("clear!!!");
+    //this.closeActions();
   }
 
   /**
@@ -245,7 +259,10 @@ export default class LinkInlineTool implements InlineTool {
   private openActions(needFocus = false): void {
     this.nodes.input.classList.add(this.CSS.inputShowed);
     if (needFocus) {
+      console.log("openActions ", needFocus);
       this.nodes.input.focus();
+      //const linkTextNode = document.querySelector("#hyperlink-text") as HTMLInputElement;
+      //linkTextNode.focus();
     }
     this.inputOpened = true;
   }

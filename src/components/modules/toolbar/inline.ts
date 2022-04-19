@@ -556,6 +556,10 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
 
       this.nodes.actions.appendChild(actions);
     }
+    if (_.isFunction(instance.renderTriggerButton)) {
+      const triggerActions = instance.renderTriggerButton();
+      this.nodes.actions.appendChild(triggerActions);
+    }
 
     this.listeners.on(button, 'click', (event) => {
       this.toolClicked(instance);
