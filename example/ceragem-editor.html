@@ -314,7 +314,7 @@
                 <div class="edit-btn box-tooltip">
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="btn-select btn-tooltip disabled">본문</button> -->
-                  <button class="btn-select btn-tooltip">본문</button>
+                  <button id="header-layer-btn" class="btn-select btn-tooltip">본문</button>
                   <div class="active-toolBox editor-command-box">
                     <ul class="editor-command-list">
                       <li>
@@ -1017,25 +1017,41 @@
   <script src="./tools/header/dist/bundle.js"></script><!-- Header -->
   <script src="./tools/Subheader/dist/bundle.js"></script><!-- Header -->
   <script src="./tools/link/dist/bundle.js"></script><!-- Link -->
+  <script src="./tools/image/dist/bundle.js"></script>
+<script src="./tools/editorjs-video/dist/bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@1.12.1/dist/bundle.js"></script>
 
   <!-- Load Editor.js's Core -->
   <script src="../dist/editor.js"></script>
-<script src="./tools/ceragem-main/dist/bundle.js"></script>
+  <script src="./tools/ceragem-main/dist/bundle.js"></script>
 
   <!-- Initialization -->
   <script>
     /* test */
     (function(){
+
+
+      const headerLayerButton = document.querySelector('#header-layer-btn');
+      headerLayerButton.addEventListener('click', () => {
+        const activeToolbox = document.querySelector(".active-toolBox");
+        activeToolbox.classList.add('active');
+      });
+
       const convertHeader1 = document.getElementById("change-header1-button");
       convertHeader1.addEventListener('click', () => {
         console.log("convertHeader1 click", document.querySelector('.ce-conversion-tool[data-tool=header]'));
         document.querySelector('.ce-conversion-tool[data-tool=header]').click();
+
+        const activeToolbox = document.querySelector(".active-toolBox");
+        activeToolbox.classList.remove('active');
       });
 
       const convertHeader2 = document.getElementById("change-header2-button");
       convertHeader2.addEventListener('click', () => {
         document.querySelector('.ce-conversion-tool[data-tool=subheader]').click();
+
+        const activeToolbox = document.querySelector(".active-toolBox");
+        activeToolbox.classList.remove('active');
       });
 
 
@@ -1043,6 +1059,9 @@
       const convertParagraph = document.getElementById("change-normal-button");
       convertParagraph.addEventListener('click', () => {
         document.querySelector('.ce-conversion-tool[data-tool=paragraph]').click();
+
+        const activeToolbox = document.querySelector(".active-toolBox");
+        activeToolbox.classList.remove('active');
       });
 
       /* id="add-text-btn" */
@@ -1070,6 +1089,8 @@
       strikeButton.addEventListener('click', () => {
         document.querySelector('.ce-inline-tool--strike').click();
       });
+
+      /* ico-bg-color */
 
       const backgroundColorButtons = document.querySelectorAll('#background-color-list button');
       backgroundColorButtons.forEach(function(colorButton) {
@@ -1129,11 +1150,23 @@
         hyperlinkBox.classList.remove('active');
       });
 
+      /* ico-post-img */
+      const addImageButton = document.querySelector('.ico-post-img');
+      addImageButton.addEventListener('click', () => {
+        document.querySelector('.ce-toolbox__button[data-tool=image]').click();
+      });
+
       /* 영상 추가 메뉴 on */
       const icoPostMove = document.querySelector('.ico-post-mov');
       icoPostMove.addEventListener('click', () => {
         const hyperlinkBox = document.querySelector("#movie-layer");
         hyperlinkBox.classList.add('on');
+      });
+
+      /* ico-post-loc */
+      const addMapButton = document.querySelector('.ico-post-loc');
+      addMapButton.addEventListener('click', () => {
+        alert('작업중');
       });
 
       /* url 입력  url-movie-btn */
@@ -1142,14 +1175,23 @@
         document.querySelector('.ce-toolbox__button[data-tool=video]').click();
         const hyperlinkBox = document.querySelector("#movie-layer");
         hyperlinkBox.classList.remove('on');
-        //const hyperlinkBox = document.querySelector("#movie-layer").click();
       });
 
-      /*
-      배경 색상 , 글자 색상
-        document.execCommand('foreColor', false, '#37B24D');
-        document.execCommand('hiliteColor', false, '#1971C2');
-       */
+      const fileMovieButton = document.querySelector('#file-movie-btn');
+      fileMovieButton.addEventListener('click', () => {
+        document.querySelector('.ce-toolbox__button[data-tool=videoUpload]').click();
+        const hyperlinkBox = document.querySelector("#movie-layer");
+        hyperlinkBox.classList.remove('on');
+      });
+
+      /* 비활성화 처리 */
+      const selection = document.getSelection();
+      const classList = selection.anchorNode.parentElement.classList;
+      if(Array.from(clssList).includes('ce-paragraph')) {
+
+      }else {
+
+      }
 
     })();
 

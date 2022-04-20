@@ -1,5 +1,8 @@
 import MySimpleImage from './MySimpleImage.js';
 import VideoEmbedded from './VideoEmbedded.js';
+//import VideoTool from 'editorjs-video-jdp';
+//import VideoTool from 'example/tools/editorjs-video/dist/bundle.js';
+
 import MyMap from './MyMap';
 
 
@@ -77,7 +80,25 @@ function start() {
         },
         shortcut: 'CMD+SHIFT+M'
       },
+      image: {
+        class: ImageTool,
+        config: {
+          endpoints: {
+            byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+            byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+          }
+        }
+      },
       video: VideoEmbedded,
+      videoUpload: {
+        class: VideoTool,
+        config: {
+          endpoints: {
+            byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+            byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+          }
+        }
+      }
 
     },
 
