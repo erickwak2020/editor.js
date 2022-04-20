@@ -1,0 +1,1303 @@
+<!--
+ Use this page is for debugging purposes.
+
+ Editor Tools are loaded as git-submodules.
+ You can pull modules by running `yarn pull_tools` and start experimenting.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor.js 🤩🧦🤨 example</title>
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+  <link rel="shortcut icon" href="#">
+  <!--<link href="assets/demo.css" rel="stylesheet">-->
+  <link href="http://dev.reflection.co.kr/ceragem/assets/web/css/common.min.css" rel="stylesheet">
+  <script src="http://dev.reflection.co.kr/ceragem/assets/web/js/lib/jquery-1.11.1.min.js"></script>
+  <script src="http://dev.reflection.co.kr/ceragem/assets/web/js/ui.common.js?cb=1649412601037"></script>
+  <script src="assets/json-preview.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+<div clas="wrap">
+  <div id="nav-skip">
+    <a href="#container">본문으로 바로가기</a>
+  </div>
+  <header class="">
+    <div class="inner-wrap">
+      <div class="left">
+        <h1 class="logo">
+          <a href="/">WelLife Lab.</a>
+        </h1>
+        <nav class="home-menu">
+          <ul>
+            <li><a href="#" class="on" title="스토리">스토리</a></li>
+            <li><a href="#" title="커뮤니티">커뮤니티</a></li>
+            <li><a href="#" title="웰카페">웰카페</a></li>
+            <li><a href="#" title="이벤트">이벤트</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="right">
+        <!-- head search -->
+        <div class="box-hd-sch">
+          <div class="box-sch-input">
+            <input type="text" title="관심있는 주제 검색" placeholder="관심있는 주제가 있으신가요?" class="sch-input">
+            <button class="ico-search">검색</button>
+            <button class="ico-search-delete" style="display: none;">삭제</button>
+          </div>
+          <div class="box-sch-list">
+            <div class="box-sch-type1">
+              <div class="list-popular-wrap type01">
+                <div class="list-header">
+                  <p class="list-title">인기 검색어</p>
+                  <div class="list-time">11시 기준</div>
+                </div>
+                <ul class="list-popular">
+                  <!--
+                      up: status-up class 붙음
+                      down: status-down class 붙음
+                      same: status-same class 붙음
+                      new: status-new class 붙음
+                  -->
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-up">
+                      <span class="popular-lank">1</span>
+                      <p class="popular-keyword">세라젬 V6세라젬 V6세라젬 V6세라젬 V6세라젬 V6</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-up">
+                      <span class="popular-lank">2</span>
+                      <p class="popular-keyword">프리지아 사과</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-up">
+                      <span class="popular-lank">3</span>
+                      <p class="popular-keyword">아크로서울포레스트아크로서울포레스트아크로서울포레스트아크로서울포레스트아크로서울포레스트아크로서울포레스트</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-down">
+                      <span class="popular-lank">4</span>
+                      <p class="popular-keyword">그 해 우리는</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-same">
+                      <span class="popular-lank">5</span>
+                      <p class="popular-keyword">현대산업개발</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-same">
+                      <span class="popular-lank">6</span>
+                      <p class="popular-keyword">악의 마음을 읽는 자들</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-up">
+                      <span class="popular-lank">7</span>
+                      <p class="popular-keyword">자동차세 연납</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-up">
+                      <span class="popular-lank">8</span>
+                      <p class="popular-keyword">박신혜</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-down">
+                      <span class="popular-lank">9</span>
+                      <p class="popular-keyword">연말정산</p>
+                    </a>
+                  </li>
+                  <li class="popular-item">
+                    <a href="#" title="" class="status-new">
+                      <span class="popular-lank">10</span>
+                      <p class="popular-keyword">LG 에너지솔루션</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="list-keyword-wrap">
+                <div class="list-lately">
+                  <div class="list-header">
+                    <p class="list-title">최근 검색어</p>
+                    <!-- 검색어 o case -->
+                    <button class="btn-delete btn-text btn-text-underline">전체삭제</button>
+                  </div>
+                  <!-- 검색어 x case -->
+                  <!-- <p class="list-noresult">최근 검색어가 없습니다.</p> -->
+                  <!-- 검색어 o case -->
+                  <ul class="list-result">
+                    <li class="result-item">
+                      <a href="#">제주도</a>
+                      <button class="ico-gray-close">닫기</button>
+                    </li>
+                    <li class="result-item">
+                      <a href="#">제주여행</a>
+                      <button class="ico-gray-close">닫기</button>
+                    </li>
+                    <li class="result-item">
+                      <a href="#">부모님선물</a>
+                      <button class="ico-gray-close">닫기</button>
+                    </li>
+                    <li class="result-item">
+                      <a href="#">혈당에좋은음식</a>
+                      <button class="ico-gray-close">닫기</button>
+                    </li>
+                    <li class="result-item">
+                      <a href="#">마음으로낳아지갑으로길렀다마음으로낳아지갑으로길렀다마음으로낳아지갑으로길렀다</a>
+                      <button class="ico-gray-close">닫기</button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="list-recommend">
+                  <div class="list-header">
+                    <p class="list-title">추천 검색어</p>
+                  </div>
+                  <div class="chips-wrap">
+                    <a href="#" class="chip-label chip-label-hashtag">척추실험실척추실험실</a>
+                    <a href="#" class="chip-label chip-label-hashtag">김척추박사</a>
+                    <a href="#" class="chip-label chip-label-hashtag">오은영의상담소</a>
+                    <a href="#" class="chip-label chip-label-hashtag">피지컬스튜디오</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-sch-type2" style="display: none;">
+              <ul class="list-typing">
+                <li class="typing-item">
+                  <a href="#">제주도</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">제주</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">제주도여행</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">제네시스</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">젤네일</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">제주여행</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">제이홉</a>
+                </li>
+                <li class="typing-item">
+                  <a href="#">제네시스dh</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- my page button -->
+        <div class="box-my">
+          <!-- 비로그인 case -->
+          <!-- <a href="#" class="btn-profile default">my</a> -->
+          <!-- 로그인 case -->
+          <a href="#" class="btn-profile">
+            <span><img src="../../../assets/web/images/temp/profile01.svg" alt=""></span>
+          </a>
+          <div class="box-profile">
+            <dl>
+              <dt><a href="#">마이페이지 홈</a></dt>
+              <dd><a href="#">내 정보 변경</a></dd>
+              <dd><a href="#">기프티샵</a></dd>
+              <dd><a href="#">로그아웃</a></dd>
+            </dl>
+          </div>
+        </div>
+        <!-- hamburger menu -->
+        <button class="btn-hamburger" title="메뉴"><span>메뉴</span></button>
+
+      </div>
+    </div>
+  </header>
+  <!-- gnb menu -->
+  <div class="gnb-wrap">
+    <div id="gnb">
+      <div class="box-login">
+        <!-- 비로그인 case -->
+        <!-- 2022.03.21 더보기 아이콘 추가 -->
+        <!-- <a href="#" class="btn-user">
+            <span class="img-profile"></span>
+            <span class="txt">로그인 해주세요</span>
+            <span class="ico-more"><span class="hidden">더보기</span></span>
+        </a> -->
+        <!-- 로그인 case -->
+        <!-- 2022.03.21 설정버튼 변경 -->
+        <a href="#" class="btn-user">
+          <span class="img-profile"><img src="../../../assets/web/images/temp/profile01.svg" alt=""></span>
+          <span class="txt">신민아님</span>
+        </a>
+        <!-- <a href="#" class="ico-setting" title="설정화면으로 이동">설정</a> -->
+        <button class="btn-sm btn-white md-ripples ripples-dark">로그아웃</button>
+      </div>
+      <ul class="gnb-list">
+        <li><a href="#" class="dep1">스토리</a></li>
+        <li><a href="#" class="dep1">커뮤니티</a></li>
+        <!-- 2022.03.21 웰카페로 메뉴 변경 -->
+        <li><a href="#" class="dep1">웰카페</a></li>
+        <li><a href="#" class="dep1">이벤트</a></li>
+      </ul>
+      <div class="gnb-footer">
+        <ul class="os-list">
+          <li><a href="#" class="btn-app btn-app-aos">구글 플레이스토어</a></li>
+          <li><a href="#" class="btn-app btn-app-ios">앱스토어</a></li>
+        </ul>
+        <ul class="ft-list">
+          <li><a href="#" title="이용약관">이용약관</a></li>
+          <li><a href="#" title="개인정보 처리방침">개인정보 처리방침</a></li>
+        </ul>
+        <span class="copy">Ⓒ 2022 CERAGEM Corp.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section id="story" class="container-wrap">
+      <div class="layout-write-wrap">
+        <div class="write-header cover-setting">
+          <div class="cover-bg">
+            <!-- <img src="../../../assets/web/images/temp/temp_cover02.png" alt=""> -->
+            <!--video cover case-->
+            <div data-setup="{}" preload="auto" loop="true" playsinline="true" autoplay="true" muted="true" class="video-js vjs-controls-enabled vjs-workinghover vjs-v7 cover-video-dimensions vjs-has-started vjs-user-inactive vjs-playing" id="cover-video" tabindex="-1" lang="ko" translate="no" role="region" aria-label="Video Player"><video id="cover-video_html5_api" class="vjs-tech" muted="muted" autoplay="" playsinline="playsinline" loop="" preload="auto" data-setup="{}" tabindex="-1" src="../../../assets/web/images/temp/temp-video.mp4">
+              <source src="../../../assets/web/images/temp/temp-video.mp4" type="video/mp4">
+            </video><div class="vjs-poster vjs-hidden" tabindex="-1" aria-disabled="false"></div><div class="vjs-text-track-display" translate="yes" aria-live="off" aria-atomic="true"><div style="position: absolute; inset: 0px; margin: 1.5%;"></div></div><div class="vjs-loading-spinner" dir="ltr"><span class="vjs-control-text">Video Player is loading.</span></div><button class="vjs-big-play-button" type="button" title="Play Video" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Play Video</span></button><div class="vjs-control-bar" dir="ltr"><button class="vjs-play-control vjs-control vjs-button vjs-playing" type="button" title="Pause" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Pause</span></button><div class="vjs-volume-panel vjs-control vjs-volume-panel-horizontal"><button class="vjs-mute-control vjs-control vjs-button vjs-vol-0" type="button" title="Unmute" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Unmute</span></button><div class="vjs-volume-control vjs-control vjs-volume-horizontal"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Volume Level" aria-live="polite" aria-valuetext="0%"><div class="vjs-mouse-display"><div class="vjs-volume-tooltip" aria-hidden="true"></div></div><div class="vjs-volume-level"><span class="vjs-control-text"></span></div></div></div></div><div class="vjs-current-time vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Current Time&nbsp;</span><span class="vjs-current-time-display" aria-live="off" role="presentation">0:54</span></div><div class="vjs-time-control vjs-time-divider" aria-hidden="true"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Duration&nbsp;</span><span class="vjs-duration-display" aria-live="off" role="presentation">0:59</span></div><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="91.82" aria-valuemin="0" aria-valuemax="100" aria-label="Progress Bar" aria-valuetext="0:54 of 0:59"><div class="vjs-load-progress" style="width: 100%;"><span class="vjs-control-text"><span>Loaded</span>: <span class="vjs-control-text-loaded-percentage">100.00%</span></span><div data-start="0" data-end="59.426033" style="left: 0%; width: 100%;"></div></div><div class="vjs-mouse-display"><div class="vjs-time-tooltip" aria-hidden="true"></div></div><div class="vjs-play-progress vjs-slider-bar" aria-hidden="true" style="width: 91.82%;"><div class="vjs-time-tooltip" aria-hidden="true" style="right: 0px;">0:54</div></div></div></div><div class="vjs-live-control vjs-control vjs-hidden"><div class="vjs-live-display" aria-live="off"><span class="vjs-control-text">Stream Type&nbsp;</span>LIVE</div></div><button class="vjs-seek-to-live-control vjs-control" type="button" title="Seek to live, currently behind live" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Seek to live, currently behind live</span><span class="vjs-seek-to-live-text" aria-hidden="true">LIVE</span></button><div class="vjs-remaining-time vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Remaining Time&nbsp;</span><span aria-hidden="true">-</span><span class="vjs-remaining-time-display" aria-live="off" role="presentation">0:05</span></div><div class="vjs-custom-control-spacer vjs-spacer ">&nbsp;</div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><div class="vjs-playback-rate-value" id="vjs-playback-rate-value-label-cover-video_component_254">1x</div><button class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Playback Rate" aria-haspopup="true" aria-expanded="false" aria-describedby="vjs-playback-rate-value-label-cover-video_component_254"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Playback Rate</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"></ul></div></div><div class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Chapters" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Chapters</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-title" tabindex="-1">Chapters</li></ul></div></div><div class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Descriptions" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Descriptions</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">descriptions off</span><span class="vjs-control-text" aria-live="polite">, selected</span></li></ul></div></div><div class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Subtitles" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Subtitles</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-texttrack-settings" tabindex="-1" role="menuitem" aria-disabled="false"><span class="vjs-menu-item-text">subtitles settings</span><span class="vjs-control-text" aria-live="polite">, opens subtitles settings dialog</span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">subtitles off</span><span class="vjs-control-text" aria-live="polite">, selected</span></li></ul></div></div><div class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Audio Track" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Audio Track</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"></ul></div></div><button class="vjs-picture-in-picture-control vjs-control vjs-button" type="button" title="Picture-in-Picture" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Picture-in-Picture</span></button><button class="vjs-fullscreen-control vjs-control vjs-button" type="button" title="Fullscreen" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Fullscreen</span></button></div><div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="cover-video_component_471_description" aria-hidden="true" aria-label="Modal Window" role="dialog"><p class="vjs-modal-dialog-description vjs-control-text" id="cover-video_component_471_description">This is a modal window.</p><div class="vjs-modal-dialog-content" role="document"></div></div><div class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings" tabindex="-1" aria-describedby="cover-video_component_477_description" aria-hidden="true" aria-label="Caption Settings Dialog" role="dialog"><p class="vjs-modal-dialog-description vjs-control-text" id="cover-video_component_477_description">Beginning of dialog window. Escape will cancel and close the window.</p><div class="vjs-modal-dialog-content" role="document"><div class="vjs-track-settings-colors"><fieldset class="vjs-fg-color vjs-track-setting"><legend id="captions-text-legend-cover-video_component_477">Text</legend><label id="captions-foreground-color-cover-video_component_477" class="vjs-label">Color</label><select aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477"><option id="captions-foreground-color-cover-video_component_477-White" value="#FFF" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-White">White</option><option id="captions-foreground-color-cover-video_component_477-Black" value="#000" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Black">Black</option><option id="captions-foreground-color-cover-video_component_477-Red" value="#F00" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Red">Red</option><option id="captions-foreground-color-cover-video_component_477-Green" value="#0F0" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Green">Green</option><option id="captions-foreground-color-cover-video_component_477-Blue" value="#00F" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Blue">Blue</option><option id="captions-foreground-color-cover-video_component_477-Yellow" value="#FF0" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Yellow">Yellow</option><option id="captions-foreground-color-cover-video_component_477-Magenta" value="#F0F" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Magenta">Magenta</option><option id="captions-foreground-color-cover-video_component_477-Cyan" value="#0FF" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-color-cover-video_component_477 captions-foreground-color-cover-video_component_477-Cyan">Cyan</option></select><span class="vjs-text-opacity vjs-opacity"><label id="captions-foreground-opacity-cover-video_component_477" class="vjs-label">Transparency</label><select aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-opacity-cover-video_component_477"><option id="captions-foreground-opacity-cover-video_component_477-Opaque" value="1" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-opacity-cover-video_component_477 captions-foreground-opacity-cover-video_component_477-Opaque">Opaque</option><option id="captions-foreground-opacity-cover-video_component_477-SemiTransparent" value="0.5" aria-labelledby="captions-text-legend-cover-video_component_477 captions-foreground-opacity-cover-video_component_477 captions-foreground-opacity-cover-video_component_477-SemiTransparent">Semi-Transparent</option></select></span></fieldset><fieldset class="vjs-bg-color vjs-track-setting"><legend id="captions-background-cover-video_component_477">Background</legend><label id="captions-background-color-cover-video_component_477" class="vjs-label">Color</label><select aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477"><option id="captions-background-color-cover-video_component_477-Black" value="#000" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Black">Black</option><option id="captions-background-color-cover-video_component_477-White" value="#FFF" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-White">White</option><option id="captions-background-color-cover-video_component_477-Red" value="#F00" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Red">Red</option><option id="captions-background-color-cover-video_component_477-Green" value="#0F0" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Green">Green</option><option id="captions-background-color-cover-video_component_477-Blue" value="#00F" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Blue">Blue</option><option id="captions-background-color-cover-video_component_477-Yellow" value="#FF0" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Yellow">Yellow</option><option id="captions-background-color-cover-video_component_477-Magenta" value="#F0F" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Magenta">Magenta</option><option id="captions-background-color-cover-video_component_477-Cyan" value="#0FF" aria-labelledby="captions-background-cover-video_component_477 captions-background-color-cover-video_component_477 captions-background-color-cover-video_component_477-Cyan">Cyan</option></select><span class="vjs-bg-opacity vjs-opacity"><label id="captions-background-opacity-cover-video_component_477" class="vjs-label">Transparency</label><select aria-labelledby="captions-background-cover-video_component_477 captions-background-opacity-cover-video_component_477"><option id="captions-background-opacity-cover-video_component_477-Opaque" value="1" aria-labelledby="captions-background-cover-video_component_477 captions-background-opacity-cover-video_component_477 captions-background-opacity-cover-video_component_477-Opaque">Opaque</option><option id="captions-background-opacity-cover-video_component_477-SemiTransparent" value="0.5" aria-labelledby="captions-background-cover-video_component_477 captions-background-opacity-cover-video_component_477 captions-background-opacity-cover-video_component_477-SemiTransparent">Semi-Transparent</option><option id="captions-background-opacity-cover-video_component_477-Transparent" value="0" aria-labelledby="captions-background-cover-video_component_477 captions-background-opacity-cover-video_component_477 captions-background-opacity-cover-video_component_477-Transparent">Transparent</option></select></span></fieldset><fieldset class="vjs-window-color vjs-track-setting"><legend id="captions-window-cover-video_component_477">Window</legend><label id="captions-window-color-cover-video_component_477" class="vjs-label">Color</label><select aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477"><option id="captions-window-color-cover-video_component_477-Black" value="#000" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Black">Black</option><option id="captions-window-color-cover-video_component_477-White" value="#FFF" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-White">White</option><option id="captions-window-color-cover-video_component_477-Red" value="#F00" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Red">Red</option><option id="captions-window-color-cover-video_component_477-Green" value="#0F0" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Green">Green</option><option id="captions-window-color-cover-video_component_477-Blue" value="#00F" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Blue">Blue</option><option id="captions-window-color-cover-video_component_477-Yellow" value="#FF0" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Yellow">Yellow</option><option id="captions-window-color-cover-video_component_477-Magenta" value="#F0F" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Magenta">Magenta</option><option id="captions-window-color-cover-video_component_477-Cyan" value="#0FF" aria-labelledby="captions-window-cover-video_component_477 captions-window-color-cover-video_component_477 captions-window-color-cover-video_component_477-Cyan">Cyan</option></select><span class="vjs-window-opacity vjs-opacity"><label id="captions-window-opacity-cover-video_component_477" class="vjs-label">Transparency</label><select aria-labelledby="captions-window-cover-video_component_477 captions-window-opacity-cover-video_component_477"><option id="captions-window-opacity-cover-video_component_477-Transparent" value="0" aria-labelledby="captions-window-cover-video_component_477 captions-window-opacity-cover-video_component_477 captions-window-opacity-cover-video_component_477-Transparent">Transparent</option><option id="captions-window-opacity-cover-video_component_477-SemiTransparent" value="0.5" aria-labelledby="captions-window-cover-video_component_477 captions-window-opacity-cover-video_component_477 captions-window-opacity-cover-video_component_477-SemiTransparent">Semi-Transparent</option><option id="captions-window-opacity-cover-video_component_477-Opaque" value="1" aria-labelledby="captions-window-cover-video_component_477 captions-window-opacity-cover-video_component_477 captions-window-opacity-cover-video_component_477-Opaque">Opaque</option></select></span></fieldset></div><div class="vjs-track-settings-font"><fieldset class="vjs-font-percent vjs-track-setting"><legend id="captions-font-size-cover-video_component_477" class="">Font Size</legend><select aria-labelledby="captions-font-size-cover-video_component_477"><option id="captions-font-size-cover-video_component_477-50" value="0.50" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-50">50%</option><option id="captions-font-size-cover-video_component_477-75" value="0.75" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-75">75%</option><option id="captions-font-size-cover-video_component_477-100" value="1.00" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-100">100%</option><option id="captions-font-size-cover-video_component_477-125" value="1.25" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-125">125%</option><option id="captions-font-size-cover-video_component_477-150" value="1.50" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-150">150%</option><option id="captions-font-size-cover-video_component_477-175" value="1.75" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-175">175%</option><option id="captions-font-size-cover-video_component_477-200" value="2.00" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-200">200%</option><option id="captions-font-size-cover-video_component_477-300" value="3.00" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-300">300%</option><option id="captions-font-size-cover-video_component_477-400" value="4.00" aria-labelledby="captions-font-size-cover-video_component_477 captions-font-size-cover-video_component_477-400">400%</option></select></fieldset><fieldset class="vjs-edge-style vjs-track-setting"><legend id="cover-video_component_477" class="">Text Edge Style</legend><select aria-labelledby="cover-video_component_477"><option id="cover-video_component_477-None" value="none" aria-labelledby="cover-video_component_477 cover-video_component_477-None">None</option><option id="cover-video_component_477-Raised" value="raised" aria-labelledby="cover-video_component_477 cover-video_component_477-Raised">Raised</option><option id="cover-video_component_477-Depressed" value="depressed" aria-labelledby="cover-video_component_477 cover-video_component_477-Depressed">Depressed</option><option id="cover-video_component_477-Uniform" value="uniform" aria-labelledby="cover-video_component_477 cover-video_component_477-Uniform">Uniform</option><option id="cover-video_component_477-Dropshadow" value="dropshadow" aria-labelledby="cover-video_component_477 cover-video_component_477-Dropshadow">Dropshadow</option></select></fieldset><fieldset class="vjs-font-family vjs-track-setting"><legend id="captions-font-family-cover-video_component_477" class="">Font Family</legend><select aria-labelledby="captions-font-family-cover-video_component_477"><option id="captions-font-family-cover-video_component_477-ProportionalSansSerif" value="proportionalSansSerif" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-ProportionalSansSerif">Proportional Sans-Serif</option><option id="captions-font-family-cover-video_component_477-MonospaceSansSerif" value="monospaceSansSerif" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-MonospaceSansSerif">Monospace Sans-Serif</option><option id="captions-font-family-cover-video_component_477-ProportionalSerif" value="proportionalSerif" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-ProportionalSerif">Proportional Serif</option><option id="captions-font-family-cover-video_component_477-MonospaceSerif" value="monospaceSerif" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-MonospaceSerif">Monospace Serif</option><option id="captions-font-family-cover-video_component_477-Casual" value="casual" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-Casual">Casual</option><option id="captions-font-family-cover-video_component_477-Script" value="script" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-Script">Script</option><option id="captions-font-family-cover-video_component_477-SmallCaps" value="small-caps" aria-labelledby="captions-font-family-cover-video_component_477 captions-font-family-cover-video_component_477-SmallCaps">Small Caps</option></select></fieldset></div><div class="vjs-track-settings-controls"><button type="button" class="vjs-default-button" title="restore all settings to the default values">Reset<span class="vjs-control-text"> restore all settings to the default values</span></button><button type="button" class="vjs-done-button">Done</button></div></div><button class="vjs-close-button vjs-control vjs-button" type="button" aria-disabled="false" title="Close Modal Dialog"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Close Modal Dialog</span></button><p class="vjs-control-text">End of dialog window.</p></div></div>
+          </div>
+          <div class="inner-cont-wrap">
+            <div class="btn-cover-util">
+              <div>
+                <label for="file01" class="btn-setting btn-sm btn-white md-ripples ripples-dark">커버설정</label>
+                <input type="file" id="file01">
+              </div>
+              <!-- <button type="button" class="btn-delete btn-sm btn-white md-ripples ripples-dark">삭제</button> -->
+              <span class="box-guide hide">
+                                        권장사이즈 1920*700<br>
+                                        가로 최소 1000px 이상 이미지 등록
+                                    </span>
+            </div>
+            <div class="box-board-head">
+              <div class="box-select-wrap">
+                <div class="box-select">
+                  <div class="selectric-wrapper selectric-plugin-select"><div class="selectric-hide-select"><select class="plugin-select" tabindex="-1">
+                    <option value="">게시판 선택</option>
+                    <option value="">테스트1</option>
+                    <option value="">테스트2</option>
+                    <option value="">테스트3</option>
+                    <option value="">테스트4</option>
+                    <option value="">테스트5</option>
+                    <option value="">테스트6</option>
+                    <option value="">테스트7</option>
+                    <option value="" selected="">테스트8</option>
+                  </select></div><div class="selectric on"><span class="label">테스트8</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="">게시판 선택</li><li data-index="1" class="">테스트1</li><li data-index="2" class="">테스트2</li><li data-index="3" class="">테스트3</li><li data-index="4" class="">테스트4</li><li data-index="5" class="">테스트5</li><li data-index="6" class="">테스트6</li><li data-index="7" class="">테스트7</li><li data-index="8" class="last selected">테스트8</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
+                </div>
+              </div>
+              <input type="text" class="main-tit" title="제목 입력" placeholder="제목을 입력하세요">
+              <input type="text" class="sub-tit" title="소제목 입력" placeholder="소제목을 입력하세요">
+            </div>
+          </div>
+        </div>
+
+        <div id="editorjs" class="write-contents">
+          <div class="text-edit-bar">
+            <div class="inner-cont-wrap">
+              <div class="text-edit-module">
+                <div class="edit-btn box-tooltip">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="btn-select btn-tooltip disabled">본문</button> -->
+                  <button class="btn-select btn-tooltip">본문</button>
+                  <div class="active-toolBox editor-command-box">
+                    <ul class="editor-command-list">
+                      <li>
+                        <button class="" id="change-normal-button">본문</button>
+                      </li>
+                      <li>
+                        <button class="title01" id="change-header1-button">제목1</button>
+                      </li>
+                      <li>
+                        <button class="title02" id="change-header2-button">제목2</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="text-edit-module">
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-bold disabled">B</button> -->
+                  <!--선택됐을경우 클래스 on 추가-->
+                  <button class="ico ico-bold on" id="bold-btn">B</button>
+                  <span class="tooltip">굵게</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-italic disabled">기울임</button> -->
+                  <button class="ico ico-italic" id="italic-btn">기울임</button>
+                  <span class="tooltip">기울임</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-underline disabled">밑줄선</button> -->
+                  <button class="ico ico-underline" id="underline-btn">밑줄선</button>
+                  <span class="tooltip">밑줄선</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-cancel disabled">취소선</button> -->
+                  <button class="ico ico-cancel" id="strike-btn">취소선</button>
+                  <span class="tooltip">취소선</span>
+                </div>
+                <div class="edit-btn box-tooltip">
+                  <!--
+                      선택된 경우 'pick' 클래스 추가,
+                      흰색일 경우 'white' 클래스 추가
+                  -->
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="btn-tooltip ico-bg-color pick disabled">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="11" cy="11" r="11" fill="#161616"/>
+                      </svg>
+                  </button> -->
+                  <button class="btn-tooltip ico-bg-color pick">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                    </svg>
+                  </button>
+                  <div class="active-toolBox editor-bg-box">
+                    <ul class="bg-color-list" id="background-color-list">
+                      <li>
+                        <button class="btn-tooltip ico-bg-color pick" data-color="#161616">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#444">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#444"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#999">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#999"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#aaa">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#aaa"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#c4c4c4">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#c4c4c4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color white" data-color="#FFFFFF">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="10.5" fill="white" stroke="#E5E5E5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#FF7A6B">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FF7A6B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#FFD24D">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFD24D"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#5DD98B">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5DD98B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#62D9D5">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#62D9D5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#5CAAE6">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5CAAE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#7A7BE6">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#7A7BE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#E56F61">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#E56F61"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#ECC346">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#ECC346"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#439C64">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#439C64"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#57C0BC">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#57C0BC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#4783B2">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#4783B2"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#5C5EAC">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5C5EAC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#FFCAC4">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFCAC4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#FFEDB8">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFEDB8"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#BEF0D1">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEF0D1"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#C0F0EE">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#C0F0EE"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#BEDDF5">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEDDF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#CACAF5">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#CACAF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#66312B">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66312B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#66541F">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66541F"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#255738">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#255738"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#275755">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#275755"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#25445C">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#25445C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-bg-color" data-color="#31315C">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#31315C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="edit-btn box-tooltip">
+                  <!--
+                      선택된 경우 'pick' 클래스 추가,
+                      흰색일 경우 'white' 클래스 추가
+                  -->
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="btn-tooltip ico-txt-color pick disabled">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle cx="11" cy="11" r="11" fill="#161616"/>
+                      </svg>
+                  </button> -->
+                  <button class="btn-tooltip ico-txt-color pick">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                    </svg>
+                  </button>
+                  <div class="active-toolBox editor-bg-box">
+                    <ul class="bg-color-list" id="text-color-list">
+                      <li>
+                        <button class="btn-tooltip ico-txt-color pick" data-color="#161616">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#161616"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#444">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#444"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#999">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#999"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#aaa">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#aaa"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#c4c4c4">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#c4c4c4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color white" data-color="#FFFFFF">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="10.5" fill="white" stroke="#E5E5E5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#FF7A6B">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FF7A6B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#FFD24D">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFD24D"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#5DD98B">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5DD98B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#62D9D5">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#62D9D5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#5CAAE6">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5CAAE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#7A7BE6">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#7A7BE6"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#E56F61">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#E56F61"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#ECC346">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#ECC346"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#439C64">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#439C64"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#57C0BC">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#57C0BC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#4783B2">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#4783B2"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#5C5EAC">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#5C5EAC"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#FFCAC4">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFCAC4"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#FFEDB8">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#FFEDB8"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#BEF0D1">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEF0D1"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#C0F0EE">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#C0F0EE"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#BEDDF5">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#BEDDF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#CACAF5">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#CACAF5"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#66312B">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66312B"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#66541F">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#66541F"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#255738">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#255738"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#275755">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#275755"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#25445C">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#25445C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="btn-tooltip ico-txt-color" data-color="#31315C">
+                          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="11" fill="#31315C"></circle>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="text-edit-module">
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-left disabled">왼쪽정렬</button> -->
+                  <button class="ico ico-left" id="justify-left-btn">왼쪽정렬</button>
+                  <span class="tooltip">왼쪽정렬</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-center disabled">중앙정렬</button> -->
+                  <button class="ico ico-center" id="justify-center-btn">중앙정렬</button>
+                  <span class="tooltip">중앙정렬</span>
+                </div>
+                <div class="edit-btn">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-right disabled">오른쪽정렬</button> -->
+                  <button class="ico ico-right" id="justify-right-btn">오른쪽정렬</button>
+                  <span class="tooltip">오른쪽정렬</span>
+                </div>
+              </div>
+              <div class="text-edit-module">
+                <div class="edit-btn box-tooltip">
+                  <!--비활성일 경우 disabled 클래스 추가-->
+                  <!-- <button class="ico ico-hyperlink btn-tooltip disabled">하이퍼링크</button> -->
+                  <button class="ico ico-hyperlink btn-tooltip" id="hyperlink-btn">하이퍼링크</button>
+                  <span class="tooltip">하이퍼링크</span>
+                  <div class="active-toolBox editor-hyperlink-box">
+                    <div class="text-input-wrap">
+                      <div class="box-input">
+                        <input id="hyperlink-text" type="text" placeholder="Add a link" title="Add a link">
+                        <button class="ico-search-delete" style="display: none;">삭제</button>
+                      </div>
+                    </div>
+                    <div class="box-btn">
+                      <!--비활성화-->
+                      <button id="link-delete-btn" class="btn-sm" disabled="">삭제</button>
+                      <!--활성화-->
+                      <!-- <button class="btn-sm btn-white md-ripples ripples-darker">삭제</button> -->
+                      <button id="link-save-btn" class="btn-sm btn-black md-ripples ripples-light">확인</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="inner-cont-wrap">
+            <!--에디터영역-->
+            <!--<div class="box-edit-wrap">
+              &lt;!&ndash;블록단위별 스타일 퍼블리싱&ndash;&gt;
+              &lt;!&ndash;
+                  블록 추가 시 'module-container' 클래스가 붙은 div 추가
+                      + 동영상 입력 블록 추가 시 'input-module' 클래스 추가
+                      + 영상 블록 추가 시 'video-module' 클래스 추가
+                      + 투표 블록 추가 시 'vote-module' 클래스 추가
+              &ndash;&gt;
+              &lt;!&ndash;에디터 유틸&ndash;&gt;
+              <div class="box-edit-util box-tooltip">
+                <button class="ico-edit-util btn-tooltip"></button>
+                <ul class="edit-list active-toolBox">
+                  <li><button class="ico-block-up">위로</button></li>
+                  <li><button class="ico-block-down">아래로</button></li>
+                  <li><button class="ico-block-delete">블럭 삭제</button></li>
+                </ul>
+              </div>
+              &lt;!&ndash;텍스트&ndash;&gt;
+              <div class="module-container" tabindex="0">
+                <p>부산출장을 가게 되었습니다. 시국이 좋지 않아 돌아다닐 수는 없지만 업무 마치고 밥 먹을 만한 곳 추천 좀 해주세요.<br>출장일정 빡센데 밥은 맛있는 거 먹고 싶어요 ㅠㅠ</p>
+              </div>
+
+              &lt;!&ndash;영상 입력&ndash;&gt;
+              <div class="module-container input-module" tabindex="0">
+                <strong class="tit">동영상 URL</strong>
+                &lt;!&ndash;잘못된 url을 입력했을 경우 error 클래스 추가&ndash;&gt;
+                <div class="input-wrap error">
+                  <input type="text" placeholder="“https://”로 시작하는 URL을 입력 해 주세요." title="url 입력">
+                  <span class="error-txt">“https://”로 시작하는 유효한 URL을 입력 해 주세요.</span>
+                </div>
+              </div>
+
+              &lt;!&ndash;영상&ndash;&gt;
+              <div class="module-container video-module" tabindex="0">
+                <div id="vjs_video_504" data-setup="{}" preload="auto" playsinline="true" class="video-js vjs-paused vjs-controls-enabled vjs-workinghover vjs-v7 vjs-user-active vjs_video_504-dimensions" tabindex="-1" lang="ko" translate="no" role="region" aria-label="Video Player"><video class="vjs-tech" playsinline="playsinline" preload="auto" data-setup="{}" id="vjs_video_504_html5_api" tabindex="-1" src="../../../assets/web/images/temp/temp-video-test.mp4">
+                  <source src="../../../assets/web/images/temp/temp-video-test.mp4" type="video/mp4">
+                </video><div class="vjs-poster vjs-hidden" tabindex="-1" aria-disabled="false"></div><div class="vjs-text-track-display" translate="yes" aria-live="off" aria-atomic="true"><div style="position: absolute; inset: 0px; margin: 1.5%;"></div></div><div class="vjs-loading-spinner" dir="ltr"><span class="vjs-control-text">Video Player is loading.</span></div><button class="vjs-big-play-button" type="button" title="Play Video" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Play Video</span></button><div class="vjs-control-bar" dir="ltr"><button class="vjs-play-control vjs-control vjs-button" type="button" title="Play" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Play</span></button><div class="vjs-volume-panel vjs-control vjs-volume-panel-horizontal"><button class="vjs-mute-control vjs-control vjs-button vjs-vol-3" type="button" title="Mute" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Mute</span></button><div class="vjs-volume-control vjs-control vjs-volume-horizontal"><div tabindex="0" class="vjs-volume-bar vjs-slider-bar vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" aria-label="Volume Level" aria-live="polite" aria-valuetext="100%"><div class="vjs-mouse-display"><div class="vjs-volume-tooltip" aria-hidden="true"></div></div><div class="vjs-volume-level"><span class="vjs-control-text"></span></div></div></div></div><div class="vjs-current-time vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Current Time&nbsp;</span><span class="vjs-current-time-display" aria-live="off" role="presentation">0:00</span></div><div class="vjs-time-control vjs-time-divider" aria-hidden="true"><div><span>/</span></div></div><div class="vjs-duration vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Duration&nbsp;</span><span class="vjs-duration-display" aria-live="off" role="presentation">0:53</span></div><div class="vjs-progress-control vjs-control"><div tabindex="0" class="vjs-progress-holder vjs-slider vjs-slider-horizontal" role="slider" aria-valuenow="0.00" aria-valuemin="0" aria-valuemax="100" aria-label="Progress Bar" aria-valuetext="0:00 of 0:53"><div class="vjs-load-progress" style="width: 29.8%;"><span class="vjs-control-text"><span>Loaded</span>: <span class="vjs-control-text-loaded-percentage">29.80%</span></span><div data-start="0" data-end="16.02" style="left: 0%; width: 100%;"></div></div><div class="vjs-mouse-display"><div class="vjs-time-tooltip" aria-hidden="true"></div></div><div class="vjs-play-progress vjs-slider-bar" aria-hidden="true" style="width: 0%;"><div class="vjs-time-tooltip" aria-hidden="true" style="right: -18px;">0:00</div></div></div></div><div class="vjs-live-control vjs-control vjs-hidden"><div class="vjs-live-display" aria-live="off"><span class="vjs-control-text">Stream Type&nbsp;</span>LIVE</div></div><button class="vjs-seek-to-live-control vjs-control" type="button" title="Seek to live, currently behind live" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Seek to live, currently behind live</span><span class="vjs-seek-to-live-text" aria-hidden="true">LIVE</span></button><div class="vjs-remaining-time vjs-time-control vjs-control"><span class="vjs-control-text" role="presentation">Remaining Time&nbsp;</span><span aria-hidden="true">-</span><span class="vjs-remaining-time-display" aria-live="off" role="presentation">0:53</span></div><div class="vjs-custom-control-spacer vjs-spacer ">&nbsp;</div><div class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><div class="vjs-playback-rate-value" id="vjs-playback-rate-value-label-vjs_video_504_component_742">1x</div><button class="vjs-playback-rate vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Playback Rate" aria-haspopup="true" aria-expanded="false" aria-describedby="vjs-playback-rate-value-label-vjs_video_504_component_742"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Playback Rate</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"></ul></div></div><div class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-chapters-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Chapters" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Chapters</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-title" tabindex="-1">Chapters</li></ul></div></div><div class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-descriptions-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Descriptions" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Descriptions</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">descriptions off</span><span class="vjs-control-text" aria-live="polite">, selected</span></li></ul></div></div><div class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-subs-caps-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Subtitles" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Subtitles</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"><li class="vjs-menu-item vjs-texttrack-settings" tabindex="-1" role="menuitem" aria-disabled="false"><span class="vjs-menu-item-text">subtitles settings</span><span class="vjs-control-text" aria-live="polite">, opens subtitles settings dialog</span></li><li class="vjs-menu-item vjs-selected" tabindex="-1" role="menuitemradio" aria-disabled="false" aria-checked="true"><span class="vjs-menu-item-text">subtitles off</span><span class="vjs-control-text" aria-live="polite">, selected</span></li></ul></div></div><div class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-control vjs-button vjs-hidden"><button class="vjs-audio-button vjs-menu-button vjs-menu-button-popup vjs-button" type="button" aria-disabled="false" title="Audio Track" aria-haspopup="true" aria-expanded="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Audio Track</span></button><div class="vjs-menu"><ul class="vjs-menu-content" role="menu"></ul></div></div><button class="vjs-picture-in-picture-control vjs-control vjs-button" type="button" title="Picture-in-Picture" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Picture-in-Picture</span></button><button class="vjs-fullscreen-control vjs-control vjs-button" type="button" title="Fullscreen" aria-disabled="false"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Fullscreen</span></button></div><div class="vjs-error-display vjs-modal-dialog vjs-hidden " tabindex="-1" aria-describedby="vjs_video_504_component_956_description" aria-hidden="true" aria-label="Modal Window" role="dialog"><p class="vjs-modal-dialog-description vjs-control-text" id="vjs_video_504_component_956_description">This is a modal window.</p><div class="vjs-modal-dialog-content" role="document"></div></div><div class="vjs-modal-dialog vjs-hidden  vjs-text-track-settings" tabindex="-1" aria-describedby="vjs_video_504_component_962_description" aria-hidden="true" aria-label="Caption Settings Dialog" role="dialog"><p class="vjs-modal-dialog-description vjs-control-text" id="vjs_video_504_component_962_description">Beginning of dialog window. Escape will cancel and close the window.</p><div class="vjs-modal-dialog-content" role="document"><div class="vjs-track-settings-colors"><fieldset class="vjs-fg-color vjs-track-setting"><legend id="captions-text-legend-vjs_video_504_component_962">Text</legend><label id="captions-foreground-color-vjs_video_504_component_962" class="vjs-label">Color</label><select aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962"><option id="captions-foreground-color-vjs_video_504_component_962-White" value="#FFF" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-White">White</option><option id="captions-foreground-color-vjs_video_504_component_962-Black" value="#000" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Black">Black</option><option id="captions-foreground-color-vjs_video_504_component_962-Red" value="#F00" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Red">Red</option><option id="captions-foreground-color-vjs_video_504_component_962-Green" value="#0F0" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Green">Green</option><option id="captions-foreground-color-vjs_video_504_component_962-Blue" value="#00F" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Blue">Blue</option><option id="captions-foreground-color-vjs_video_504_component_962-Yellow" value="#FF0" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Yellow">Yellow</option><option id="captions-foreground-color-vjs_video_504_component_962-Magenta" value="#F0F" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Magenta">Magenta</option><option id="captions-foreground-color-vjs_video_504_component_962-Cyan" value="#0FF" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962 captions-foreground-color-vjs_video_504_component_962-Cyan">Cyan</option></select><span class="vjs-text-opacity vjs-opacity"><label id="captions-foreground-opacity-vjs_video_504_component_962" class="vjs-label">Transparency</label><select aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-opacity-vjs_video_504_component_962"><option id="captions-foreground-opacity-vjs_video_504_component_962-Opaque" value="1" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-opacity-vjs_video_504_component_962 captions-foreground-opacity-vjs_video_504_component_962-Opaque">Opaque</option><option id="captions-foreground-opacity-vjs_video_504_component_962-SemiTransparent" value="0.5" aria-labelledby="captions-text-legend-vjs_video_504_component_962 captions-foreground-opacity-vjs_video_504_component_962 captions-foreground-opacity-vjs_video_504_component_962-SemiTransparent">Semi-Transparent</option></select></span></fieldset><fieldset class="vjs-bg-color vjs-track-setting"><legend id="captions-background-vjs_video_504_component_962">Background</legend><label id="captions-background-color-vjs_video_504_component_962" class="vjs-label">Color</label><select aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962"><option id="captions-background-color-vjs_video_504_component_962-Black" value="#000" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Black">Black</option><option id="captions-background-color-vjs_video_504_component_962-White" value="#FFF" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-White">White</option><option id="captions-background-color-vjs_video_504_component_962-Red" value="#F00" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Red">Red</option><option id="captions-background-color-vjs_video_504_component_962-Green" value="#0F0" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Green">Green</option><option id="captions-background-color-vjs_video_504_component_962-Blue" value="#00F" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Blue">Blue</option><option id="captions-background-color-vjs_video_504_component_962-Yellow" value="#FF0" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Yellow">Yellow</option><option id="captions-background-color-vjs_video_504_component_962-Magenta" value="#F0F" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Magenta">Magenta</option><option id="captions-background-color-vjs_video_504_component_962-Cyan" value="#0FF" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962 captions-background-color-vjs_video_504_component_962-Cyan">Cyan</option></select><span class="vjs-bg-opacity vjs-opacity"><label id="captions-background-opacity-vjs_video_504_component_962" class="vjs-label">Transparency</label><select aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962"><option id="captions-background-opacity-vjs_video_504_component_962-Opaque" value="1" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962-Opaque">Opaque</option><option id="captions-background-opacity-vjs_video_504_component_962-SemiTransparent" value="0.5" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962-SemiTransparent">Semi-Transparent</option><option id="captions-background-opacity-vjs_video_504_component_962-Transparent" value="0" aria-labelledby="captions-background-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962 captions-background-opacity-vjs_video_504_component_962-Transparent">Transparent</option></select></span></fieldset><fieldset class="vjs-window-color vjs-track-setting"><legend id="captions-window-vjs_video_504_component_962">Window</legend><label id="captions-window-color-vjs_video_504_component_962" class="vjs-label">Color</label><select aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962"><option id="captions-window-color-vjs_video_504_component_962-Black" value="#000" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Black">Black</option><option id="captions-window-color-vjs_video_504_component_962-White" value="#FFF" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-White">White</option><option id="captions-window-color-vjs_video_504_component_962-Red" value="#F00" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Red">Red</option><option id="captions-window-color-vjs_video_504_component_962-Green" value="#0F0" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Green">Green</option><option id="captions-window-color-vjs_video_504_component_962-Blue" value="#00F" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Blue">Blue</option><option id="captions-window-color-vjs_video_504_component_962-Yellow" value="#FF0" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Yellow">Yellow</option><option id="captions-window-color-vjs_video_504_component_962-Magenta" value="#F0F" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Magenta">Magenta</option><option id="captions-window-color-vjs_video_504_component_962-Cyan" value="#0FF" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962 captions-window-color-vjs_video_504_component_962-Cyan">Cyan</option></select><span class="vjs-window-opacity vjs-opacity"><label id="captions-window-opacity-vjs_video_504_component_962" class="vjs-label">Transparency</label><select aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962"><option id="captions-window-opacity-vjs_video_504_component_962-Transparent" value="0" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962-Transparent">Transparent</option><option id="captions-window-opacity-vjs_video_504_component_962-SemiTransparent" value="0.5" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962-SemiTransparent">Semi-Transparent</option><option id="captions-window-opacity-vjs_video_504_component_962-Opaque" value="1" aria-labelledby="captions-window-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962 captions-window-opacity-vjs_video_504_component_962-Opaque">Opaque</option></select></span></fieldset></div><div class="vjs-track-settings-font"><fieldset class="vjs-font-percent vjs-track-setting"><legend id="captions-font-size-vjs_video_504_component_962" class="">Font Size</legend><select aria-labelledby="captions-font-size-vjs_video_504_component_962"><option id="captions-font-size-vjs_video_504_component_962-50" value="0.50" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-50">50%</option><option id="captions-font-size-vjs_video_504_component_962-75" value="0.75" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-75">75%</option><option id="captions-font-size-vjs_video_504_component_962-100" value="1.00" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-100">100%</option><option id="captions-font-size-vjs_video_504_component_962-125" value="1.25" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-125">125%</option><option id="captions-font-size-vjs_video_504_component_962-150" value="1.50" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-150">150%</option><option id="captions-font-size-vjs_video_504_component_962-175" value="1.75" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-175">175%</option><option id="captions-font-size-vjs_video_504_component_962-200" value="2.00" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-200">200%</option><option id="captions-font-size-vjs_video_504_component_962-300" value="3.00" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-300">300%</option><option id="captions-font-size-vjs_video_504_component_962-400" value="4.00" aria-labelledby="captions-font-size-vjs_video_504_component_962 captions-font-size-vjs_video_504_component_962-400">400%</option></select></fieldset><fieldset class="vjs-edge-style vjs-track-setting"><legend id="vjs_video_504_component_962" class="">Text Edge Style</legend><select aria-labelledby="vjs_video_504_component_962"><option id="vjs_video_504_component_962-None" value="none" aria-labelledby="vjs_video_504_component_962 vjs_video_504_component_962-None">None</option><option id="vjs_video_504_component_962-Raised" value="raised" aria-labelledby="vjs_video_504_component_962 vjs_video_504_component_962-Raised">Raised</option><option id="vjs_video_504_component_962-Depressed" value="depressed" aria-labelledby="vjs_video_504_component_962 vjs_video_504_component_962-Depressed">Depressed</option><option id="vjs_video_504_component_962-Uniform" value="uniform" aria-labelledby="vjs_video_504_component_962 vjs_video_504_component_962-Uniform">Uniform</option><option id="vjs_video_504_component_962-Dropshadow" value="dropshadow" aria-labelledby="vjs_video_504_component_962 vjs_video_504_component_962-Dropshadow">Dropshadow</option></select></fieldset><fieldset class="vjs-font-family vjs-track-setting"><legend id="captions-font-family-vjs_video_504_component_962" class="">Font Family</legend><select aria-labelledby="captions-font-family-vjs_video_504_component_962"><option id="captions-font-family-vjs_video_504_component_962-ProportionalSansSerif" value="proportionalSansSerif" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-ProportionalSansSerif">Proportional Sans-Serif</option><option id="captions-font-family-vjs_video_504_component_962-MonospaceSansSerif" value="monospaceSansSerif" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-MonospaceSansSerif">Monospace Sans-Serif</option><option id="captions-font-family-vjs_video_504_component_962-ProportionalSerif" value="proportionalSerif" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-ProportionalSerif">Proportional Serif</option><option id="captions-font-family-vjs_video_504_component_962-MonospaceSerif" value="monospaceSerif" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-MonospaceSerif">Monospace Serif</option><option id="captions-font-family-vjs_video_504_component_962-Casual" value="casual" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-Casual">Casual</option><option id="captions-font-family-vjs_video_504_component_962-Script" value="script" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-Script">Script</option><option id="captions-font-family-vjs_video_504_component_962-SmallCaps" value="small-caps" aria-labelledby="captions-font-family-vjs_video_504_component_962 captions-font-family-vjs_video_504_component_962-SmallCaps">Small Caps</option></select></fieldset></div><div class="vjs-track-settings-controls"><button type="button" class="vjs-default-button" title="restore all settings to the default values">Reset<span class="vjs-control-text"> restore all settings to the default values</span></button><button type="button" class="vjs-done-button">Done</button></div></div><button class="vjs-close-button vjs-control vjs-button" type="button" aria-disabled="false" title="Close Modal Dialog"><span class="vjs-icon-placeholder" aria-hidden="true"></span><span class="vjs-control-text" aria-live="polite">Close Modal Dialog</span></button><p class="vjs-control-text">End of dialog window.</p></div></div>
+              </div>
+
+              &lt;!&ndash;이미지&ndash;&gt;
+              <div class="module-container" tabindex="0">
+                <img src="../../../assets/web/images/temp/temp-write.png" alt="">
+              </div>
+
+              &lt;!&ndash;이미지 슬라이더&ndash;&gt;
+              <div class="module-container" tabindex="0">
+                <div class="box-util">
+                  <div class="box-img-add">
+                    <input type="file" id="textfile01">
+                    <label for="textfile01" class="btn-sm btn-white btn-img-add">이미지 추가</label>
+                  </div>
+                </div>
+                <div class="slider-wrap">
+                  <div class="default-slider slick-initialized slick-slider slick-dotted"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="display: block;">Previous</button>
+                    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 5656px; transform: translate3d(-808px, 0px, 0px);"><div class="slider-item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 808px;"><img src="../../../assets/web/images/temp/temp-slick-test2.jpg" alt=""></div><div class="slider-item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" style="width: 808px;"><img src="../../../assets/web/images/temp/slick-test.jpg" alt=""></div><div class="slider-item slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01" style="width: 808px;"><img src="../../../assets/web/images/temp/temp-slick-test.jpg" alt=""></div><div class="slider-item slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02" style="width: 808px;"><img src="../../../assets/web/images/temp/temp-slick-test2.jpg" alt=""></div><div class="slider-item slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 808px;"><img src="../../../assets/web/images/temp/slick-test.jpg" alt=""></div><div class="slider-item slick-slide slick-cloned" data-slick-index="4" aria-hidden="true" tabindex="-1" style="width: 808px;"><img src="../../../assets/web/images/temp/temp-slick-test.jpg" alt=""></div><div class="slider-item slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1" style="width: 808px;"><img src="../../../assets/web/images/temp/temp-slick-test2.jpg" alt=""></div></div></div>
+
+
+                    <button class="slick-next slick-arrow" aria-label="Next" type="button" style="display: block;">Next</button><ul class="slick-dots" style="display: flex;" role="tablist"><li class="slick-active" role="presentation"><button type="button" role="tab" id="slick-slide-control00" aria-controls="slick-slide00" aria-label="1 of 3" tabindex="0" aria-selected="true">1</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control01" aria-controls="slick-slide01" aria-label="2 of 3" tabindex="-1">2</button></li><li role="presentation"><button type="button" role="tab" id="slick-slide-control02" aria-controls="slick-slide02" aria-label="3 of 3" tabindex="-1">3</button></li></ul></div>
+                </div>
+              </div>
+
+              &lt;!&ndash;지도&ndash;&gt;
+              <div class="module-container" tabindex="0">
+                <div class="box-map" style="height: 500px;background-color: #aaa;">
+                </div>
+              </div>
+
+              &lt;!&ndash;투표&ndash;&gt;
+              <div class="module-container vote-module" tabindex="0">
+                <div class="box-util">
+                  <button type="button" class="btn-sm btn-white md-ripples ripples-dark btn-update">수정</button>
+                  <button type="button" class="btn-sm btn-black md-ripples ripples-light btn-delete">삭제</button>
+                </div>
+                <strong>투표가 첨부되었습니다.</strong>
+                <span>글 등록 후에는 수정할 수 없습니다.</span>
+              </div>
+
+              &lt;!&ndash;태그 입력&ndash;&gt;
+              <div class="chips-wrap edit-chips">
+                <div class="chips-editable">
+                  <div class="edit-input-wrap">
+                    <span class="input-hashtag">#</span>
+                    <input type="text" class="chip-edit" placeholder="태그입력" style="width: 106px;">
+                  </div>
+                  <div id="input-width-calc"></div>
+                </div>
+              </div>
+
+            </div>-->
+            <!--에디터 모듈목록-->
+            <div class="box-module-wrap">
+              <div class="list-module">
+                <span class="box-guide hide">
+                    <!--2022.04.08 문구수정-->
+                    아이콘을 선택해<br>블록을 추가하세요
+                </span>
+                <ul>
+                  <li>
+                    <button type="button" class="ico-post-text" id="add-text-btn">텍스트 추가</button>
+                    <span class="ballon">텍스트</span>
+                  </li>
+                  <li>
+                    <button type="button" class="ico-post-img">이미지 추가</button>
+                    <span class="ballon">이미지</span>
+                  </li>
+                  <li>
+                    <button type="button" class="ico-post-mov">영상 추가</button>
+                    <span class="ballon">영상</span>
+                    <ul class="layer-module-select">
+                      <li><button type="button">URL 입력하기</button></li>
+                      <li><button type="button">파일 올리기</button></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <button type="button" class="ico-post-loc">위치 추가</button>
+                    <span class="ballon">위치</span>
+                  </li>
+                  <li>
+                    <button type="button" class="ico-post-vote">투표 추가</button>
+                    <span class="ballon">투표</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="editor-bottom-navi">
+            <div class="inner-wrap">
+              <div class="right">
+                <div class="box-btn etc-toolbar-button">
+                  <button class="btn-sm btn-white btn-load" >불러오기 <span>2</span></button>
+                  <button class="btn-sm btn-white" id="saveButton">임시저장</button>
+                  <button class="btn-sm btn-text-xs btn-ico btn-black left">등록</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div class="ce-example__output">
+    <pre class="ce-example__output-content" id="output"></pre>
+  </div>
+</div>
+  <script src="./tools/header/dist/bundle.js"></script><!-- Header -->
+  <script src="./tools/Subheader/dist/bundle.js"></script><!-- Header -->
+  <script src="./tools/link/dist/bundle.js"></script><!-- Link -->
+  <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@1.12.1/dist/bundle.js"></script>
+
+  <!-- Load Editor.js's Core -->
+  <script src="../dist/editor.js"></script>
+
+  <!-- Initialization -->
+  <script>
+    /**
+     * Editor init config
+     * @see https://editorjs.io/configuration
+     */
+    const editorConfig = {
+      /**
+       * Enable/Disable the read only mode
+       */
+      readOnly: false,
+
+      /**
+       * Wrapper of Editor
+       */
+      holder: 'editorjs',
+      autofocus: true,
+      /**
+       * Common Inline Toolbar settings
+       * - if true (or not specified), the order from 'tool' property will be used
+       * - if an array of tool names, this order will be used
+       */
+      inlineToolbar: ['link', 'bold', 'italic', 'strike', 'underline'
+        , 'color', 'marker','justifyLeft','justifyCenter','justifyRight'],
+      // inlineToolbar: true,
+
+      /**
+       * Tools list
+       */
+      tools: {
+        /**
+         * Each Tool is a Plugin. Pass them via 'class' option with necessary settings {@link docs/tools.md}
+         */
+        header: {
+          class: Header,
+          inlineToolbar: true,
+          config: {
+            placeholder: 'Header'
+          },
+          shortcut: 'CMD+SHIFT+H'
+        },
+        subheader: {
+          class: SubHeader,
+          inlineToolbar: true,
+          config: {
+            placeholder: 'SubHeader'
+          },
+          shortcut: 'CMD+SHIFT+S'
+        },
+        color: {
+          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
+          config: {
+            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
+              ,'#FFFFFF','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
+              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
+              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
+              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
+              ,'#66541F','#255738','#275755','#25445C','#31315C'
+            ],
+            defaultColor: '#161616',
+            type: 'text',
+          }
+        },
+        marker: {
+          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
+          config: {
+            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
+              ,'#FFFFFF','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
+              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
+              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
+              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
+              ,'#66541F','#255738','#275755','#25445C','#31315C'
+            ],
+            defaultColor: '#161616',
+            type: 'marker',
+          },
+          shortcut: 'CMD+SHIFT+M'
+        },
+
+      },
+
+      /**
+       * This Tool will be used as default
+       */
+      // defaultBlock: 'header',
+
+      //autofocus: true,
+
+      /**
+       * Initial Editor data
+       */
+      data: {
+        blocks: [
+          /*{
+            "id" : "Fd8rR9vAW-",
+            "type" : "header",
+            "data" : {
+              "text" : "Header Test",
+              "level" : 2
+            }
+          }*/
+        ]
+      },
+      onReady: function(){
+        console.log('Editor.js is ready to work!');
+        //saveButton.click();
+      },
+      onChange: function(api, event) {
+        console.log('something changed', api, event);
+      },
+    }
+    /**
+     * To initialize the Editor, create a new instance with configuration object
+     * @see docs/installation.md for mode details
+     */
+    var editor = new EditorJS(editorConfig);
+
+    areYouReady();
+    async function areYouReady() {
+      console.log('call areYouReady()');
+      await editor.isReady;
+      console.log('isReady then() Editor.js is ready to work!');
+    }
+
+    /**
+     * Saving button
+     */
+    //editor.inlineToolbar.init();
+    const saveButton = document.getElementById('saveButton');
+
+    /**
+     * Toggle read-only button
+     */
+
+    /**
+     * Saving example
+     */
+    saveButton.addEventListener('click', function () {
+      console.log("======== save button ===");
+      editor.save()
+        .then((savedData) => {
+          cPreview.show(savedData, document.getElementById("output"));
+        })
+        .catch((error) => {
+          console.error('Saving error', error);
+        });
+    });
+
+
+    /**
+     * Button for displaying blocks borders. Useful for UI development
+     */
+
+
+    /**
+     * Button for enabling the 'Thin' mode
+     */
+
+
+    /* test */
+    (function(){
+
+
+      const convertHeader1 = document.getElementById("change-header1-button");
+      convertHeader1.addEventListener('click', () => {
+        console.log("convertHeader1 click", document.querySelector('.ce-conversion-tool[data-tool=header]'));
+        document.querySelector('.ce-conversion-tool[data-tool=header]').click();
+      });
+
+      const convertHeader2 = document.getElementById("change-header2-button");
+      convertHeader2.addEventListener('click', () => {
+        document.querySelector('.ce-conversion-tool[data-tool=subheader]').click();
+      });
+
+
+
+      const convertParagraph = document.getElementById("change-normal-button");
+      convertParagraph.addEventListener('click', () => {
+        document.querySelector('.ce-conversion-tool[data-tool=paragraph]').click();
+      });
+
+      /* id="add-text-btn" */
+      const addTextButton = document.getElementById("add-text-btn");
+      addTextButton.addEventListener('click', () => {
+        document.querySelector('.ce-toolbox__button[data-tool=paragraph]');
+      });
+
+      const boldButton = document.getElementById("bold-btn");
+      boldButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--bold').click();
+      });
+      /* italic-btn */
+      const italicButton = document.getElementById("italic-btn");
+      italicButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--italic').click();
+      });
+      /* underline-btn */
+      const underlineButton = document.getElementById("underline-btn");
+      underlineButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--underline').click();
+      });
+      /* strike-btn */
+      const strikeButton = document.getElementById("strike-btn");
+      strikeButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--strike').click();
+      });
+
+      const backgroundColorButtons = document.querySelectorAll('#background-color-list button');
+      backgroundColorButtons.forEach(function(colorButton) {
+        var color = colorButton.getAttribute('data-color');
+        colorButton.addEventListener('click', () => {
+          var xy = document.querySelector('[data-tool=marker] xy-color-picker');
+          var colorSign = xy.popcon.querySelector('.color-sign');
+          colorSign.querySelector('[data-color="' + color + '"]').click();
+        });
+      });
+
+      const textColorButtons = document.querySelectorAll('#text-color-list button');
+      textColorButtons.forEach(function(colorButton) {
+        var color = colorButton.getAttribute('data-color');
+        colorButton.addEventListener('click', () => {
+          var xy = document.querySelector('[data-tool=color] xy-color-picker');
+          var colorSign = xy.popcon.querySelector('.color-sign');
+          colorSign.querySelector('[data-color="' + color + '"]').click();
+        });
+      });
+
+      /* 왼쪽 정렬 */
+      const justifyLeftButton = document.getElementById("justify-left-btn");
+      justifyLeftButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--justifyLeft').click();
+      });
+      /* 중앙 정렬 */
+      const justifyCenterButton = document.getElementById("justify-center-btn");
+      justifyCenterButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--justifyCenter').click();
+      });
+      /* 오른쪽 정렬 */
+      const justifyRightButton = document.getElementById("justify-right-btn");
+      justifyRightButton.addEventListener('click', () => {
+        document.querySelector('.ce-inline-tool--justifyRight').click();
+      });
+
+      /* 작업 해야 됨 */
+      const hyperlinkButton = document.getElementById("hyperlink-btn");
+      hyperlinkButton.addEventListener('click', () => {
+        const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
+        hyperlinkBox.classList.add('active');
+        setTimeout(function() {
+          document.querySelector('[data-tool=link]').click();
+          document.querySelector("#hyperlink-text").focus();
+          },100);
+
+      });
+
+      const linkSaveButton = document.getElementById("link-save-btn");
+      linkSaveButton.addEventListener('click', () => {
+        const hyperLinkText = document.querySelector('#hyperlink-text').value;
+        document.querySelector('.ce-inline-tool-input').value = hyperLinkText;
+        var triggerBtn = document.querySelector('.trigger-btn');
+        triggerBtn.click();
+        const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
+        hyperlinkBox.classList.remove('active');
+      });
+
+
+
+      /*
+      배경 색상 , 글자 색상
+        document.execCommand('foreColor', false, '#37B24D');
+        document.execCommand('hiliteColor', false, '#1971C2');
+       */
+
+    })();
+
+
+  </script>
+</body>
+</html>
