@@ -390,9 +390,9 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     }
 
     // empty selection
-    if (currentSelection.isCollapsed || selectedText.length < 1) {
+    /*if (currentSelection.isCollapsed || selectedText.length < 1) {
       return false;
-    }
+    }*/
 
     const target = !$.isElement(currentSelection.anchorNode)
       ? currentSelection.anchorNode.parentElement
