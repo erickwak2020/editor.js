@@ -1,6 +1,6 @@
 .ce-toolbox {
   position: absolute;
-  /*visibility: hidden;*/
+  visibility: hidden;
   transition: opacity 100ms ease;
   will-change: opacity;
   display: flex;
@@ -15,7 +15,7 @@
 
   &--opened {
     opacity: 1;
-    visibility: visible;
+    visibility: hidden;
   }
 
   &__button {
