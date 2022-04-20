@@ -975,9 +975,9 @@
                   <li>
                     <button type="button" class="ico-post-mov">영상 추가</button>
                     <span class="ballon">영상</span>
-                    <ul class="layer-module-select">
-                      <li><button type="button">URL 입력하기</button></li>
-                      <li><button type="button">파일 올리기</button></li>
+                    <ul id="movie-layer" class="layer-module-select">
+                      <li><button id="url-movie-btn" type="button">URL 입력하기</button></li>
+                      <li><button id="file-movie-btn" type="button">파일 올리기</button></li>
                     </ul>
                   </li>
                   <li>
@@ -1021,170 +1021,12 @@
 
   <!-- Load Editor.js's Core -->
   <script src="../dist/editor.js"></script>
+<script src="./tools/ceragem-main/dist/bundle.js"></script>
 
   <!-- Initialization -->
   <script>
-    /**
-     * Editor init config
-     * @see https://editorjs.io/configuration
-     */
-    const editorConfig = {
-      /**
-       * Enable/Disable the read only mode
-       */
-      readOnly: false,
-
-      /**
-       * Wrapper of Editor
-       */
-      holder: 'editorjs',
-      autofocus: true,
-      /**
-       * Common Inline Toolbar settings
-       * - if true (or not specified), the order from 'tool' property will be used
-       * - if an array of tool names, this order will be used
-       */
-      inlineToolbar: ['link', 'bold', 'italic', 'strike', 'underline'
-        , 'color', 'marker','justifyLeft','justifyCenter','justifyRight'],
-      // inlineToolbar: true,
-
-      /**
-       * Tools list
-       */
-      tools: {
-        /**
-         * Each Tool is a Plugin. Pass them via 'class' option with necessary settings {@link docs/tools.md}
-         */
-        header: {
-          class: Header,
-          inlineToolbar: true,
-          config: {
-            placeholder: 'Header'
-          },
-          shortcut: 'CMD+SHIFT+H'
-        },
-        subheader: {
-          class: SubHeader,
-          inlineToolbar: true,
-          config: {
-            placeholder: 'SubHeader'
-          },
-          shortcut: 'CMD+SHIFT+S'
-        },
-        color: {
-          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
-          config: {
-            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
-              ,'#FFFFFF','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
-              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
-              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
-              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
-              ,'#66541F','#255738','#275755','#25445C','#31315C'
-            ],
-            defaultColor: '#161616',
-            type: 'text',
-          }
-        },
-        marker: {
-          class: ColorPlugin, // if load from CDN, please try: window.ColorPlugin
-          config: {
-            colorCollections: ['#161616','#444','#999','#aaa','#c4c4c4'
-              ,'#FFFFFF','#FF7A6B','#FFD24D','#5DD98B','#62D9D5'
-              ,'#5CAAE6','#7A7BE6','#E56F61','#ECC346','#439C64'
-              ,'#57C0BC','#4783B2','#5C5EAC','#FFCAC4','#FFEDB8'
-              ,'#BEF0D1','#C0F0EE','#BEDDF5','#CACAF5','#66312B'
-              ,'#66541F','#255738','#275755','#25445C','#31315C'
-            ],
-            defaultColor: '#161616',
-            type: 'marker',
-          },
-          shortcut: 'CMD+SHIFT+M'
-        },
-
-      },
-
-      /**
-       * This Tool will be used as default
-       */
-      // defaultBlock: 'header',
-
-      //autofocus: true,
-
-      /**
-       * Initial Editor data
-       */
-      data: {
-        blocks: [
-          /*{
-            "id" : "Fd8rR9vAW-",
-            "type" : "header",
-            "data" : {
-              "text" : "Header Test",
-              "level" : 2
-            }
-          }*/
-        ]
-      },
-      onReady: function(){
-        console.log('Editor.js is ready to work!');
-        //saveButton.click();
-      },
-      onChange: function(api, event) {
-        console.log('something changed', api, event);
-      },
-    }
-    /**
-     * To initialize the Editor, create a new instance with configuration object
-     * @see docs/installation.md for mode details
-     */
-    var editor = new EditorJS(editorConfig);
-
-    areYouReady();
-    async function areYouReady() {
-      console.log('call areYouReady()');
-      await editor.isReady;
-      console.log('isReady then() Editor.js is ready to work!');
-    }
-
-    /**
-     * Saving button
-     */
-    //editor.inlineToolbar.init();
-    const saveButton = document.getElementById('saveButton');
-
-    /**
-     * Toggle read-only button
-     */
-
-    /**
-     * Saving example
-     */
-    saveButton.addEventListener('click', function () {
-      console.log("======== save button ===");
-      editor.save()
-        .then((savedData) => {
-          cPreview.show(savedData, document.getElementById("output"));
-        })
-        .catch((error) => {
-          console.error('Saving error', error);
-        });
-    });
-
-
-    /**
-     * Button for displaying blocks borders. Useful for UI development
-     */
-
-
-    /**
-     * Button for enabling the 'Thin' mode
-     */
-
-
     /* test */
     (function(){
-
-
       const convertHeader1 = document.getElementById("change-header1-button");
       convertHeader1.addEventListener('click', () => {
         console.log("convertHeader1 click", document.querySelector('.ce-conversion-tool[data-tool=header]'));
@@ -1206,7 +1048,7 @@
       /* id="add-text-btn" */
       const addTextButton = document.getElementById("add-text-btn");
       addTextButton.addEventListener('click', () => {
-        document.querySelector('.ce-toolbox__button[data-tool=paragraph]');
+        document.querySelector('.ce-toolbox__button[data-tool=paragraph]').click();
       });
 
       const boldButton = document.getElementById("bold-btn");
@@ -1287,7 +1129,21 @@
         hyperlinkBox.classList.remove('active');
       });
 
+      /* 영상 추가 메뉴 on */
+      const icoPostMove = document.querySelector('.ico-post-mov');
+      icoPostMove.addEventListener('click', () => {
+        const hyperlinkBox = document.querySelector("#movie-layer");
+        hyperlinkBox.classList.add('on');
+      });
 
+      /* url 입력  url-movie-btn */
+      const urlMovieButton = document.querySelector('#url-movie-btn');
+      urlMovieButton.addEventListener('click', () => {
+        document.querySelector('.ce-toolbox__button[data-tool=video]').click();
+        const hyperlinkBox = document.querySelector("#movie-layer");
+        hyperlinkBox.classList.remove('on');
+        //const hyperlinkBox = document.querySelector("#movie-layer").click();
+      });
 
       /*
       배경 색상 , 글자 색상
