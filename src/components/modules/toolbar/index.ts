@@ -115,7 +115,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @param moduleConfiguration.eventsDispatcher - Editor's event dispatcher
    */
   constructor({ config, eventsDispatcher }: ModuleConfig) {
-    console.log('toolbar index.ts constructor');
+    //console.log('toolbar index.ts constructor');
     super({
       config,
       eventsDispatcher,
@@ -155,7 +155,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @returns {boolean}
    */
   public get opened(): boolean {
-    console.log('toolbar index.ts opened');
+    //console.log('toolbar index.ts opened');
 
     return this.nodes.wrapper.classList.contains(this.CSS.toolbarOpened);
   }
@@ -166,7 +166,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @returns {{hide: function(): void, show: function(): void}}
    */
   public get plusButton(): { hide: () => void; show: () => void } {
-    console.log('toolbar index.ts plusButton');
+    //console.log('toolbar index.ts plusButton');
 
     return {
       hide: (): void => this.nodes.plusButton.classList.add(this.CSS.plusButtonHidden),
@@ -227,7 +227,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @param {boolean} readOnlyEnabled - read-only mode
    */
   public toggleReadOnly(readOnlyEnabled: boolean): void {
-    console.log('toolbar index.ts toggleReadOnly', readOnlyEnabled);
+    //console.log('toolbar index.ts toggleReadOnly', readOnlyEnabled);
     if (!readOnlyEnabled) {
       this.drawUI();
       this.enableModuleBindings();
@@ -244,7 +244,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * @param block - block to move Toolbar near it
    */
   public moveAndOpen(block: Block = this.Editor.BlockManager.currentBlock): void {
-    console.log('toolbar index.ts moveAndOpen');
+    //console.log('toolbar index.ts moveAndOpen');
     /**
      * Close Toolbox when we move toolbar
      */
@@ -339,7 +339,7 @@ export default class Toolbar extends Module<ToolbarNodes> {
    * Draws Toolbar elements
    */
   private make(): void {
-    console.log('toolbar index.ts make() 342');
+    //console.log('toolbar index.ts make() 342');
     this.nodes.wrapper = $.make('div', this.CSS.toolbar);
 
     /**

@@ -44,7 +44,7 @@ export default class EditorJS {
    * @param {EditorConfig|string|undefined} [configuration] - user configuration
    */
   constructor(configuration?: EditorConfig|string) {
-    console.log('codex.ts : constructor : ', configuration);
+    //console.log('codex.ts : constructor : ', configuration);
     /**
      * Set default onReady function
      */
