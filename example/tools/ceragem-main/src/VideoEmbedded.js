@@ -21,6 +21,12 @@ export default class VideoEmbedded {
     const self = this;
 
     self._createMainWrapper();
+
+    if(this?.data?.videoSrc?.length > 0) {
+      this._drawVideo(this.data.videoSrc);
+      return this.wrapper;
+    }
+
     const titleString = this._makeTitle();
     const inputWrapper = this._makeInputWrapper();
 
@@ -31,28 +37,31 @@ export default class VideoEmbedded {
     this.wrapper.appendChild(inputWrapper);
 
     console.log('render() ', this.wrapper, this.wrapper.parentElement);
-    pasteInput.addEventListener('paste', (event) => {
+    // <iframe title="vimeo-player" src="https://player.vimeo.com/video/685751292?autoplay=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
+    /*pasteInput.addEventListener('paste', (event) => {
       const url = event.clipboardData.getData('text');
-      /* validation check */
-      if(url.includes('vimeo.com')) {
-        self.wrapper.innerHTML = '';
-        const vimeoWrapper = this._makeVimeoWrapper(event);
-        self.wrapper.appendChild(vimeoWrapper);
-      } else if(url.includes('youtube.com')) {
-        self.wrapper.innerHTML = '';
-        const youtubeWrapper = this._makeYoutubeWrapper(url);
-        self.wrapper.classList.remove('input-module');
-        self.wrapper.classList.add('video-module');
-        self.wrapper.appendChild(youtubeWrapper);
-      } else {
-        return;
-      }
-      //this._createImage(event.clipboardData.getData('text'));
-      //<iframe title="vimeo-player" src="https://player.vimeo.com/video/685751292?autoplay=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-    });
+      console.log('paste', this, event, pasteInput.value);
+      self._drawVideo(url);
+    });*/
 
     return this.wrapper;
+  }
+
+  _drawVideo(url) {
+    if(url.includes('vimeo.com')) {
+      this.wrapper.innerHTML = '';
+      const vimeoWrapper = this._makeVimeoWrapper(event);
+      this.wrapper.appendChild(vimeoWrapper);
+    } else if(url.includes('youtube.com')) {
+      this.wrapper.innerHTML = '';
+      const youtubeWrapper = this._makeYoutubeWrapper(url);
+      this.wrapper.classList.remove('input-module');
+      this.wrapper.classList.add('video-module');
+      this.wrapper.appendChild(youtubeWrapper);
+    } else {
+      return;
+    }
   }
 
   _makeYoutubeWrapper(src) {
@@ -88,6 +97,16 @@ export default class VideoEmbedded {
 
     input.type = 'text';
     input.placeholder = 'https://”로 시작하는 URL을 입력 해 주세요.';
+
+    input.addEventListener('keydown',
+      (event) => {
+        event.stopPropagation();
+        console.log('keydown event ', event, event.keyCode, input.value);
+        if (event.keyCode === 13) {
+          this._drawVideo(input.value);
+        }
+      });
+
     return input;
   }
 
@@ -113,9 +132,17 @@ export default class VideoEmbedded {
   }
 
   save(blockContent){
-    console.log(blockContent);
+    const videoSrc = blockContent.querySelector('iframe') ? blockContent.querySelector('iframe').src : '';
     return {
-      url: '',
+      videoSrc: videoSrc,
     };
+  }
+
+  validate(savedData){
+    console.log('savedData.videoSrc ', savedData);
+    if (!savedData.videoSrc.trim()){
+      return false;
+    }
+    return true;
   }
 }
