@@ -16,6 +16,7 @@ import * as _ from '../utils';
 import Selection from '../selection';
 import Block from '../block';
 import Flipper from '../flipper';
+import SelectionUtils from '../selection';
 
 /**
  * HTML Elements used for UI
@@ -186,7 +187,7 @@ export default class UI extends Module<UINodes> {
    * @param {boolean} readOnlyEnabled - "read only" state
    */
   public toggleReadOnly(readOnlyEnabled: boolean): void {
-    console.log('ui.ts toggleReadOnly 189');
+    //console.log('ui.ts toggleReadOnly 189');
     /**
      * Prepare components based on read-only state
      */
@@ -288,7 +289,7 @@ export default class UI extends Module<UINodes> {
       this.CSS.editorWrapper,
       ...(this.isRtl ? [ this.CSS.editorRtlFix ] : []),
     ]);
-    //this.nodes.wrapper.classList.add("inner-cont-wrap");
+    // this.nodes.wrapper.classList.add("inner-cont-wrap");
     this.nodes.redactor = $.make('div', this.CSS.editorZone);
 
     /**
@@ -812,6 +813,8 @@ export default class UI extends Module<UINodes> {
     const { CrossBlockSelection, BlockSelection } = this.Editor;
     const focusedElement = Selection.anchorElement;
 
+    //console.log('ui.ts selectionChagned ', focusedElement, Selection.range, this.Editor.BlockManager.currentBlock);
+
     if (CrossBlockSelection.isCrossBlockSelectionStarted) {
       // Removes all ranges when any Block is selected
       if (BlockSelection.anyBlockSelected) {
@@ -866,6 +869,23 @@ export default class UI extends Module<UINodes> {
      */
     if (!this.Editor.BlockManager.currentBlock) {
       this.Editor.BlockManager.setCurrentBlockByChildNode(focusedElement);
+    } else {
+      const selectedText = SelectionUtils.text;
+
+      //console.log('currentBlock name ', this.Editor.BlockManager.currentBlock.name, selectedText.length);
+      const inlines = document.querySelectorAll('[data-ceragem-inline]');
+
+      if (selectedText.length > 0) {
+        inlines.forEach(function (ele) {
+          ele.classList.remove('disabled');
+          //ele.classList.add('on');
+        });
+      } else {
+        inlines.forEach(function (ele) {
+          //ele.classList.remove('on');
+          ele.classList.add('disabled');
+        });
+      }
     }
 
     const isNeedToShowConversionToolbar = clickedOutsideBlockContent !== true;
