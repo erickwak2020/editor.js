@@ -335,25 +335,25 @@
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="ico ico-bold disabled">B</button> -->
                   <!--선택됐을경우 클래스 on 추가-->
-                  <button class="ico ico-bold on" id="bold-btn">B</button>
+                  <button class="ico ico-bold on" id="bold-btn" data-ceragem-inline="bold">B</button>
                   <span class="tooltip">굵게</span>
                 </div>
                 <div class="edit-btn">
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="ico ico-italic disabled">기울임</button> -->
-                  <button class="ico ico-italic" id="italic-btn">기울임</button>
+                  <button class="ico ico-italic" id="italic-btn" data-ceragem-inline="italic">기울임</button>
                   <span class="tooltip">기울임</span>
                 </div>
                 <div class="edit-btn">
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="ico ico-underline disabled">밑줄선</button> -->
-                  <button class="ico ico-underline" id="underline-btn">밑줄선</button>
+                  <button class="ico ico-underline" id="underline-btn" data-ceragem-inline="underline">밑줄선</button>
                   <span class="tooltip">밑줄선</span>
                 </div>
                 <div class="edit-btn">
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="ico ico-cancel disabled">취소선</button> -->
-                  <button class="ico ico-cancel" id="strike-btn">취소선</button>
+                  <button class="ico ico-cancel" id="strike-btn" data-ceragem-inline="strike">취소선</button>
                   <span class="tooltip">취소선</span>
                 </div>
                 <div class="edit-btn box-tooltip">
@@ -1018,7 +1018,7 @@
   <script src="./tools/Subheader/dist/bundle.js"></script><!-- Header -->
   <script src="./tools/link/dist/bundle.js"></script><!-- Link -->
   <script src="./tools/image/dist/bundle.js"></script>
-<script src="./tools/editorjs-video/dist/bundle.js"></script>
+  <script src="./tools/editorjs-video/dist/bundle.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/editorjs-text-color-plugin@1.12.1/dist/bundle.js"></script>
 
   <!-- Load Editor.js's Core -->
@@ -1028,6 +1028,46 @@
   <!-- Initialization -->
   <script>
     /* test */
+    window.addEventListener('load', function(event) {
+      console.log('call here');
+      editorConfig.data.blocks = [
+        {
+          "id" : "GEwGAZ9iYK",
+          "type" : "paragraph",
+          "data" : {
+            "text" : "sdfsdfd<b>sfdsfd</b>sfds"
+          },
+        },
+        {
+          "id" : "Dn-ZiCYm1Z",
+          "type" : "video",
+          "data" : {
+            "videoSrc" : "https://www.youtube.com/embed/tgbNymZ7vqY?controls=0"
+          }
+        }
+      ];
+
+      /*
+      image
+      image: {
+      class: ImageTool,
+      config: {
+        endpoints: {
+          byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+          byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+        }
+      }
+    },
+       */
+      editorConfig.tools.image.config = {
+        endpoints: {
+          byFile: 'http://localhost:8000/asset/upload-single', // Your backend file uploader endpoint
+          byUrl: 'http://localhost:8000/fetchUrl', // Your endpoint that provides uploading by Url
+        }
+      }
+      ceragemEditorStart();
+    });
+
     (function(){
 
 
@@ -1184,6 +1224,19 @@
         hyperlinkBox.classList.remove('on');
       });
 
+      const saveButton = document.getElementById('saveButton');
+
+      saveButton.addEventListener('click', function () {
+        console.log("======== save button ===");
+        editor.save()
+          .then((savedData) => {
+            cPreview.show(savedData, document.getElementById("output"));
+          })
+          .catch((error) => {
+            console.error('Saving error', error);
+          });
+      });
+
       /* 비활성화 처리 */
       const selection = document.getSelection();
       const classList = selection.anchorNode.parentElement.classList;
@@ -1194,6 +1247,7 @@
       }
 
     })();
+
 
 
   </script>
