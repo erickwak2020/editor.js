@@ -51,7 +51,7 @@ export default class VideoEmbedded {
   _drawVideo(url) {
     if(url.includes('vimeo.com')) {
       this.wrapper.innerHTML = '';
-      const vimeoWrapper = this._makeVimeoWrapper(event);
+      const vimeoWrapper = this._makeVimeoWrapper(url);
       this.wrapper.appendChild(vimeoWrapper);
     } else if(url.includes('youtube.com')) {
       this.wrapper.innerHTML = '';
@@ -74,9 +74,8 @@ export default class VideoEmbedded {
     return youTubeIframe;
   }
 
-  _makeVimeoWrapper(event) {
+  _makeVimeoWrapper(url) {
     const vimeoWrapper = document.createElement('div');
-    const url = event.clipboardData.getData('text');
     const vimeoIframe = document.createElement('iframe');
 
     vimeoWrapper.style.height = '600px';
