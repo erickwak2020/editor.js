@@ -393,7 +393,7 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     // empty selection
     if (currentSelection.isCollapsed || selectedText.length < 1) {
       console.log("empty selection ====", this.opened , this.init);
-      if(this.init === false) {
+      if (this.init === false) {
         this.init = true;
       } else {
         return false;
