@@ -98,6 +98,8 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
    * Tooltip utility Instance
    */
   private tooltip: Tooltip;
+
+  public init = false;
   /**
    * @class
    * @param moduleConfiguration - Module Configuration
@@ -389,9 +391,14 @@ export default class InlineToolbar extends Module<InlineToolbarNodes> {
     }
 
     // empty selection
-    /*if (currentSelection.isCollapsed || selectedText.length < 1) {
-      return false;
-    }*/
+    if (currentSelection.isCollapsed || selectedText.length < 1) {
+      console.log("empty selection ====", this.opened , this.init);
+      if(this.init === false) {
+        this.init = true;
+      } else {
+        return false;
+      }
+    }
 
     const target = !$.isElement(currentSelection.anchorNode)
       ? currentSelection.anchorNode.parentElement
