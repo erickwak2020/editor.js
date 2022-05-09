@@ -148,6 +148,7 @@ export default class LinkInlineTool implements InlineTool {
   public renderTriggerButton(): HTMLElement {
     const triggerButton = document.createElement('button') as HTMLButtonElement;
     triggerButton.innerText = this.i18n.t('Add a link');
+    triggerButton.type = 'button';
     triggerButton.classList.add('trigger-btn');
     triggerButton.addEventListener('click', () => {
       this.enterPressed(new KeyboardEvent('keydown'));
