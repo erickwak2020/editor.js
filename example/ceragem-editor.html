@@ -844,7 +844,7 @@
                 <div class="edit-btn box-tooltip">
                   <!--비활성일 경우 disabled 클래스 추가-->
                   <!-- <button class="ico ico-hyperlink btn-tooltip disabled">하이퍼링크</button> -->
-                  <button class="ico ico-hyperlink btn-tooltip" id="hyperlink-btn">하이퍼링크</button>
+                  <button class="ico ico-hyperlink btn-tooltip" id="hyperlink-btn" data-ceragem-inline="hyperlink">하이퍼링크</button>
                   <span class="tooltip">하이퍼링크</span>
                   <div class="active-toolBox editor-hyperlink-box">
                     <div class="text-input-wrap">
@@ -1135,22 +1135,49 @@
       const hyperlinkButton = document.getElementById("hyperlink-btn");
       hyperlinkButton.addEventListener('click', () => {
         const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
-        hyperlinkBox.classList.add('active');
-        setTimeout(function() {
-          document.querySelector('[data-tool=link]').click();
-          document.querySelector("#hyperlink-text").focus();
-          },100);
-
+        if(!hyperlinkButton.classList.contains('disabled')) {
+          hyperlinkBox.classList.add('active');
+          setTimeout(function () {
+            const inlineToolInput = document.querySelector('.ce-inline-tool-input');
+            const hyperlinkText = document.querySelector("#hyperlink-text")
+            if(inlineToolInput.value.length > 0) {
+              const deleteBtn = document.querySelector('#link-delete-btn');
+              deleteBtn.disabled = false;
+              deleteBtn.classList.add('btn-white', 'md-ripples', 'ripples-darker');
+              hyperlinkText.value = inlineToolInput.value;
+            } else {
+              document.querySelector('[data-tool=link]').click();
+            }
+            document.querySelector("#hyperlink-text").focus();
+          }, 100);
+        }
       });
 
       const linkSaveButton = document.getElementById("link-save-btn");
       linkSaveButton.addEventListener('click', () => {
         const hyperLinkText = document.querySelector('#hyperlink-text').value;
-        document.querySelector('.ce-inline-tool-input').value = hyperLinkText;
+        const inlineToolInput = document.querySelector('.ce-inline-tool-input');
+        inlineToolInput.value = hyperLinkText;
+
+
         var triggerBtn = document.querySelector('.trigger-btn');
         triggerBtn.click();
         const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
         hyperlinkBox.classList.remove('active');
+        document.querySelector('#hyperlink-text').value = '';
+      });
+
+
+
+      const linkDeleteBtn = document.getElementById("link-delete-btn");
+      linkDeleteBtn.addEventListener('click', () => {
+        document.querySelector('[data-tool=link]').click();
+        const hyperlinkBox = document.querySelector(".editor-hyperlink-box");
+        hyperlinkBox.classList.remove('active');
+        document.querySelector('#hyperlink-text').value = '';
+        const deleteBtn = document.querySelector('#link-delete-btn');
+        deleteBtn.disabled = true;
+        deleteBtn.classList.remove('btn-white', 'md-ripples', 'ripples-darker');
       });
 
       /* ico-post-img */
