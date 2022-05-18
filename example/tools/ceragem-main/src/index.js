@@ -1,10 +1,5 @@
-import MySimpleImage from './MySimpleImage.js';
 import VideoEmbedded from './VideoEmbedded.js';
-//import VideoTool from 'editorjs-video-jdp';
-//import VideoTool from 'example/tools/editorjs-video/dist/bundle.js';
-
-import MyMap from './MyMap';
-
+import StaticMap from './StaticMap.js';
 
 window.editorConfig = {
   /**
@@ -95,7 +90,11 @@ window.editorConfig = {
           byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
         }
       }
-    }
+    },
+    map: {
+      class: StaticMap,
+      config: {}
+    },
   },
 
   /**
@@ -109,10 +108,7 @@ window.editorConfig = {
    * Initial Editor data
    */
   data: {},
-  onReady: function(){
-    console.log('Editor.js is ready to work!');
-    // saveButton.click();
-  }, /* ,
+  /* ,
     onChange: function(api, event) {
       console.log('something changed', api, event);
     },*/

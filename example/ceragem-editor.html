@@ -866,18 +866,7 @@
             </div>
           </div>
 
-          <div class="inner-cont-wrap">
-            <!--에디터영역-->
-            <!--<div class="module-container" tabindex="0">
-              <div class="slider-wrap">
-                <div class="default-slider">
-                  <div class="slider-item"><img src="./assets/event_558x310_1.jpg" alt=""></div>
-                  <div class="slider-item"><img src="./assets/event_558x310_2.jpg" alt=""></div>
-                  <div class="slider-item"><img src="./assets/event_558x310_3.jpg" alt=""></div>
-                  <div class="slider-item"><img src="./assets/event_558x310_4.jpg" alt=""></div>
-                </div>
-              </div>
-            </div>-->
+          <div class="inner-cont-wrap" id="ceragem-tool-wrap">
             <!--에디터 모듈목록-->
             <div class="box-module-wrap">
               <div class="list-module">
@@ -946,6 +935,7 @@
   <!-- Load Editor.js's Core -->
   <script src="../dist/editor.js"></script>
   <script src="./tools/ceragem-main/dist/bundle.js"></script>
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
   <!-- Initialization -->
   <script>
@@ -981,44 +971,9 @@
           }
         }
       ];
-
-      /*
-      image
-      image: {
-      class: ImageTool,
-      config: {
-        endpoints: {
-          byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
-          byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
-        }
-      }
-    },
-       */
-
-
-
-
-      /*editorConfig.tools.image.config = {
-        endpoints: {
-          byFile: 'http://localhost:8000/asset/upload-single', // Your backend file uploader endpoint
-          byUrl: 'http://localhost:8000/fetchUrl', // Your endpoint that provides uploading by Url
-        }
-      }*/
-
       editorConfig.tools.image.config = {
         uploader: {
-          /**
-           * Upload file to the server and return an uploaded image data
-           * @param {File} file - file selected from the device or pasted by drag-n-drop
-           * @return {Promise.<{success, file: {url}}>}
-           */
           uploadByFile: function (file) {
-            // your own uploading logic here
-            /* if (response.error.error === false) {
-      response.success = true;
-      response.file.url = response.url;
-      response.file.name = response.name;
-    }*/
             return {
               error: { error: false},
               url: './assets/codex2x.png',
@@ -1026,7 +981,47 @@
             };
           }
         }
+      };
+
+      editorConfig.tools.map.config = {
+        address: {
+          width: 500,
+          height: 600
+        },
+        naverCloud: {
+          apiKeyId: 'bh6uk4dbzi',
+          apiKey: 'W55tjQK466mOKXaiYHeoSOkwAZoCX2rQgOg6gWc4',
+          mapWidth: 1090,
+          mapHeight: 500,
+        },
       }
+
+      editorConfig.onReady = function() {
+        console.log("I'am ready!!!!!!!");
+        const ceragemToolWrap = document.querySelector('#ceragem-tool-wrap');
+        var editorWrap = $(".ce-toolbox").closest('.inner-cont-wrap')[0];
+        editorWrap.insertAdjacentHTML('beforeend',ceragemToolWrap.innerHTML);
+        ceragemToolWrap.remove();
+
+        /* id="add-text-btn" */
+        const addTextButton = document.getElementById("add-text-btn");
+        addTextButton.addEventListener('click', () => {
+          document.querySelector('.ce-toolbox__button[data-tool=paragraph]').click();
+        });
+
+        /* ico-post-img */
+        const addImageButton = document.querySelector('.ico-post-img');
+        addImageButton.addEventListener('click', () => {
+          document.querySelector('.ce-toolbox__button[data-tool=image]').click();
+        });
+
+        /* ico-post-loc */
+        const addMapButton = document.querySelector('.ico-post-loc');
+        addMapButton.addEventListener('click', () => {
+          document.querySelector('.ce-toolbox__button[data-tool=map]').click();
+        });
+      };
+
 
       ceragemEditorStart();
     });
@@ -1057,20 +1052,12 @@
         activeToolbox.classList.remove('active');
       });
 
-
-
       const convertParagraph = document.getElementById("change-normal-button");
       convertParagraph.addEventListener('click', () => {
         document.querySelector('.ce-conversion-tool[data-tool=paragraph]').click();
 
         const activeToolbox = document.querySelector(".active-toolBox");
         activeToolbox.classList.remove('active');
-      });
-
-      /* id="add-text-btn" */
-      const addTextButton = document.getElementById("add-text-btn");
-      addTextButton.addEventListener('click', () => {
-        document.querySelector('.ce-toolbox__button[data-tool=paragraph]').click();
       });
 
       const boldButton = document.getElementById("bold-btn");
@@ -1180,11 +1167,7 @@
         deleteBtn.classList.remove('btn-white', 'md-ripples', 'ripples-darker');
       });
 
-      /* ico-post-img */
-      const addImageButton = document.querySelector('.ico-post-img');
-      addImageButton.addEventListener('click', () => {
-        document.querySelector('.ce-toolbox__button[data-tool=image]').click();
-      });
+
 
       /* 영상 추가 메뉴 on */
       const icoPostMove = document.querySelector('.ico-post-mov');
@@ -1193,11 +1176,7 @@
         hyperlinkBox.classList.add('on');
       });
 
-      /* ico-post-loc */
-      const addMapButton = document.querySelector('.ico-post-loc');
-      addMapButton.addEventListener('click', () => {
-        alert('작업중');
-      });
+
 
       /* url 입력  url-movie-btn */
       const urlMovieButton = document.querySelector('#url-movie-btn');
