@@ -305,7 +305,8 @@ export default class UI extends Module<UINodes> {
     this.nodes.redactor.style.paddingBottom = this.config.minHeight + 'px';
 
     this.nodes.wrapper.appendChild(this.nodes.redactor);
-    this.nodes.holder.appendChild(this.nodes.wrapper);
+    const textEditBar = document.querySelector('.text-edit-bar');
+    this.nodes.holder.insertBefore(this.nodes.wrapper, textEditBar.nextSibling);
   }
 
   /**
