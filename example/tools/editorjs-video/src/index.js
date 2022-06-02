@@ -120,7 +120,7 @@ export default class VideoTool {
       additionalRequestHeaders: config.additionalRequestHeaders || {},
       field: config.field || 'video',
       types: config.types || 'video/*',
-      captionPlaceholder: this.api.i18n.t(config.captionPlaceholder || 'Caption'),
+      //captionPlaceholder: this.api.i18n.t(config.captionPlaceholder || 'Caption'),
       buttonContent: config.buttonContent || '',
       uploader: config.uploader || undefined,
       actions: config.actions || [],
@@ -193,9 +193,8 @@ export default class VideoTool {
    * @returns {videoToolData}
    */
   save() {
-    const caption = this.ui.nodes.caption;
-
-    this._data.caption = caption.innerHTML;
+    //const caption = this.ui.nodes.caption;
+    //this._data.caption = caption.innerHTML;
 
     return this.data;
   }
@@ -306,8 +305,8 @@ export default class VideoTool {
   set data(data) {
     this.video = data.file;
 
-    this._data.caption = data.caption || '';
-    this.ui.fillCaption(this._data.caption);
+    //this._data.caption = data.caption || '';
+    //this.ui.fillCaption(this._data.caption);
 
     this.tunes.tunes.forEach(({ name: tune }) => {
       const value = typeof data[tune] !== 'undefined' ? data[tune] === true || data[tune] === 'true' : false;
@@ -351,6 +350,16 @@ export default class VideoTool {
    * @returns {void}
    */
   onUpload(response) {
+
+    if (response.error.error === false) {
+      response = {
+        success: true,
+        file: {
+          url: response.url,
+        },
+      };
+    }
+
     if (response.success && response.file) {
       this.video = response.file;
     } else {

@@ -25,9 +25,9 @@ export default class Ui {
       fileButton: this.createFileButton(),
       videoEl: undefined,
       videoPreloader: make('div', this.CSS.videoPreloader),
-      caption: make('div', [this.CSS.input, this.CSS.caption], {
+      /*caption: make('div', [this.CSS.input, this.CSS.caption], {
         contentEditable: !this.readOnly,
-      }),
+      }),*/
     };
 
     /**
@@ -40,12 +40,12 @@ export default class Ui {
      *    <select-file-button />
      *  </wrapper>
      */
-    this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
+    //this.nodes.caption.dataset.placeholder = this.config.captionPlaceholder;
     this.nodes.videoContainer.appendChild(this.nodes.videoPreloader);
     this.nodes.wrapper.appendChild(this.nodes.videoContainer);
-    if (config.defaultElements.includes('caption')) {
+    /*if (config.defaultElements.includes('caption')) {
       this.nodes.wrapper.appendChild(this.nodes.caption);
-    }
+    }*/
     this.nodes.wrapper.appendChild(this.nodes.fileButton);
   }
 
@@ -255,11 +255,11 @@ export default class Ui {
    * @param {string} text - caption text
    * @returns {void}
    */
-  fillCaption(text) {
+  /*fillCaption(text) {
     if (this.nodes.caption) {
       this.nodes.caption.innerHTML = text;
     }
-  }
+  }*/
 
   /**
    * Changes UI status

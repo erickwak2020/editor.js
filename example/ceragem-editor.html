@@ -969,6 +969,18 @@
               "url" : "./assets/codex2x.png"
             }
           }
+        },
+        {
+          "id" : "M2B-VB5Npx",
+          "type" : "videoUpload",
+          "data" : {
+            "file" : {
+              "url" : "./assets/sample.mp4"
+            },
+            "withBorder" : false,
+            "stretched" : false,
+            "withBackground" : false
+          }
         }
       ];
       editorConfig.tools.image.config = {
@@ -982,6 +994,18 @@
           }
         }
       };
+
+      editorConfig.tools.videoUpload.config = {
+        uploader: {
+          uploadByFile: function (file) {
+            return {
+              error: { error: false},
+              url: './assets/sample.mp4',
+              name: 'sample.mp4',
+            };
+          }
+        }
+      }
 
       editorConfig.tools.map.config = {
         address: {
@@ -1019,6 +1043,28 @@
         const addMapButton = document.querySelector('.ico-post-loc');
         addMapButton.addEventListener('click', () => {
           document.querySelector('.ce-toolbox__button[data-tool=map]').click();
+        });
+
+        /* 영상 추가 메뉴 on */
+        const icoPostMove = document.querySelector('.ico-post-mov');
+        icoPostMove.addEventListener('click', () => {
+          const hyperlinkBox = document.querySelector("#movie-layer");
+          hyperlinkBox.classList.add('on');
+        });
+
+        /* url 입력  url-movie-btn */
+        const urlMovieButton = document.querySelector('#url-movie-btn');
+        urlMovieButton.addEventListener('click', () => {
+          document.querySelector('.ce-toolbox__button[data-tool=video]').click();
+          const hyperlinkBox = document.querySelector("#movie-layer");
+          hyperlinkBox.classList.remove('on');
+        });
+
+        const fileMovieButton = document.querySelector('#file-movie-btn');
+        fileMovieButton.addEventListener('click', () => {
+          document.querySelector('.ce-toolbox__button[data-tool=videoUpload]').click();
+          const hyperlinkBox = document.querySelector("#movie-layer");
+          hyperlinkBox.classList.remove('on');
         });
       };
 
@@ -1168,30 +1214,6 @@
       });
 
 
-
-      /* 영상 추가 메뉴 on */
-      const icoPostMove = document.querySelector('.ico-post-mov');
-      icoPostMove.addEventListener('click', () => {
-        const hyperlinkBox = document.querySelector("#movie-layer");
-        hyperlinkBox.classList.add('on');
-      });
-
-
-
-      /* url 입력  url-movie-btn */
-      const urlMovieButton = document.querySelector('#url-movie-btn');
-      urlMovieButton.addEventListener('click', () => {
-        document.querySelector('.ce-toolbox__button[data-tool=video]').click();
-        const hyperlinkBox = document.querySelector("#movie-layer");
-        hyperlinkBox.classList.remove('on');
-      });
-
-      const fileMovieButton = document.querySelector('#file-movie-btn');
-      fileMovieButton.addEventListener('click', () => {
-        document.querySelector('.ce-toolbox__button[data-tool=videoUpload]').click();
-        const hyperlinkBox = document.querySelector("#movie-layer");
-        hyperlinkBox.classList.remove('on');
-      });
 
       const saveButton = document.getElementById('saveButton');
 
