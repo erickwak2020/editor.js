@@ -28,6 +28,15 @@ export default class Uploader {
   uploadSelectedFile({ onPreview }) {
     const preparePreview = function (file) {
       const reader = new FileReader();
+      const MaxSize = 50;
+      var checkSize = 1024 * 1024 * MaxSize;
+      var errorMsg = '파일 사이즈는 50MB를 초과할수 없습니다.';
+      console.log('file.size ', file.size);
+      if (file.size > checkSize) {
+        console.log(errorMsg);
+        alert(errorMsg);
+        throw new Error(errorMsg);
+      }
 
       reader.readAsDataURL(file);
       reader.onload = (e) => {
