@@ -21,7 +21,7 @@ export default class VideoEmbedded {
     const self = this;
 
     self._createMainWrapper();
-
+    this.errorTxt = this._makeErrorText();
     if(this?.data?.videoSrc?.length > 0) {
       this._drawVideo(this.data.videoSrc);
       return this.wrapper;
@@ -31,12 +31,14 @@ export default class VideoEmbedded {
     const inputWrapper = this._makeInputWrapper();
 
     const pasteInput = this._makePasteInput();
+    const confirmButton = this._makePasteInputButton(pasteInput);
 
     inputWrapper.appendChild(pasteInput);
+    inputWrapper.appendChild(confirmButton);
     this.wrapper.appendChild(titleString);
     this.wrapper.appendChild(inputWrapper);
+    this.wrapper.appendChild(this.errorTxt);
 
-    console.log('render() ', this.wrapper, this.wrapper.parentElement);
     // <iframe title="vimeo-player" src="https://player.vimeo.com/video/685751292?autoplay=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
     /*pasteInput.addEventListener('paste', (event) => {
@@ -49,8 +51,31 @@ export default class VideoEmbedded {
   }
 
   _drawVideo(url) {
+
+    console.log("--- drawVideo : " , url);
+    if(url.includes('youtu.be')) {
+      /* www.youtube.com/embed */
+      url = url.replace('youtu.be', 'www.youtube.com/embed');
+    }
+
+    /* https://vimeo.com/730186753 --> https://player.vimeo.com/video/730186753 */
+    if(url.match(/https?:\/\/vimeo.com\/\d{3,}/g)) {
+      url = url.replace('vimeo.com', 'player.vimeo.com/video');
+    }
+
+    if(url.includes('https://www.youtube.com/watch?v=')) {
+      url = url.replace('www.youtube.com/watch?v=','www.youtube.com/embed/');
+    }
+
+    /*
+    https://www.youtube.com/watch?v=Qxx-G2IEQnE --> https://www.youtube.com/embed/Qxx-G2IEQnE
+    https://youtu.be/Qxx-G2IEQnE --> https://www.youtube.com/embed/Qxx-G2IEQnE
+     */
+
+
     if(url.includes('vimeo.com')) {
       this.wrapper.innerHTML = '';
+      this.errorTxt.innerText = '';
       const vimeoWrapper = this._makeVimeoWrapper(url);
       this.wrapper.appendChild(vimeoWrapper);
     } else if(url.includes('youtube.com')) {
@@ -59,8 +84,9 @@ export default class VideoEmbedded {
       this.wrapper.classList.remove('input-module');
       this.wrapper.classList.add('video-module');
       this.wrapper.appendChild(youtubeWrapper);
+      this.errorTxt.innerText = '';
     } else {
-      return;
+      this.errorTxt.innerText = '“https://”로 시작하는 유효한 URL을 입력 해 주세요.';
     }
   }
 
@@ -100,20 +126,45 @@ export default class VideoEmbedded {
     input.addEventListener('keydown',
       (event) => {
         event.stopPropagation();
-        console.log('keydown event ', event, event.keyCode, input.value);
         if (event.keyCode === 13) {
           this._drawVideo(input.value);
         }
       });
 
+
     return input;
   }
 
+  _makeErrorText() {
+    /* <span class="error-txt">“https://”로 시작하는 유효한 URL을 입력 해 주세요.</span> */
+    const errorSpan = document.createElement('span');
+    errorSpan.classList.add('error-txt');
+    // input.type = 'text';
+    // input.placeholder = 'https://”로 시작하는 URL을 입력 해 주세요.';
+    return errorSpan;
+  }
+
+  _makePasteInputButton(pasteInput) {
+    const button = document.createElement('button');
+
+    button.type = 'button';
+    button.classList.add('btn-sm','btn-black','md-ripples','ripples-light','btn-comfirm');
+    button.innerText = '확인';
+
+    button.addEventListener('click',
+      (event) => {
+        this._drawVideo(pasteInput.value);
+      });
+
+    return button;
+  }
+
+  /* <button type="button" class="btn-sm btn-black md-ripples ripples-light btn-comfirm">확인</button> */
+
+
   _createMainWrapper() {
     this.wrapper = document.createElement('div');
-    //this.wrapper.parent.  .classList.add('input-module');
-    this.wrapper.classList.add('module-container');
-    this.wrapper.classList.add('input-module');
+    this.wrapper.classList.add('module-container','input-module','error');
   }
 
   _makeTitle() {

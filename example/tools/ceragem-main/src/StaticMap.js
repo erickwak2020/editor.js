@@ -80,15 +80,10 @@ export default class StaticMap {
 
   async _makeMapImage() {
 
-    let targetUrl = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?query=" + this.sourceAddress;
-    console.log("targetUrl : " + targetUrl);
+    let targetUrl = `/naver/geocode?query=${this.sourceAddress}`;
+    console.log(`targetUrl : ${targetUrl}`);
     const self = this;
-    const response = await axios.get(targetUrl, {
-      headers : {
-        'X-NCP-APIGW-API-KEY-ID': self.config.naverCloud.apiKeyId,
-        'X-NCP-APIGW-API-KEY': self.config.naverCloud.apiKey
-      }
-    });
+    const response = await axios.get(targetUrl);
     //const response = await axios.get('./json/address-sample.json');
     console.log(response);
     if(response.data?.addresses?.length > 0) {

@@ -302,8 +302,8 @@
                   </select></div><div class="selectric on"><span class="label">테스트8</span><b class="button">▾</b></div><div class="selectric-items" tabindex="-1"><div class="selectric-scroll"><ul><li data-index="0" class="">게시판 선택</li><li data-index="1" class="">테스트1</li><li data-index="2" class="">테스트2</li><li data-index="3" class="">테스트3</li><li data-index="4" class="">테스트4</li><li data-index="5" class="">테스트5</li><li data-index="6" class="">테스트6</li><li data-index="7" class="">테스트7</li><li data-index="8" class="last selected">테스트8</li></ul></div></div><input class="selectric-input" tabindex="0"></div>
                 </div>
               </div>
-              <input type="text" class="main-tit" title="제목 입력" placeholder="제목을 입력하세요">
-              <input type="text" class="sub-tit" title="소제목 입력" placeholder="소제목을 입력하세요">
+              <input type="text" id="idx_title" class="main-tit" title="제목 입력" placeholder="제목을 입력하세요">
+              <input type="text" id="idx_sub_title" class="sub-tit" title="소제목 입력" placeholder="소제목을 입력하세요">
             </div>
           </div>
         </div>
@@ -936,6 +936,7 @@
   <script src="../dist/editor.js"></script>
   <script src="./tools/ceragem-main/dist/bundle.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
 
   <!-- Initialization -->
   <script>
@@ -943,7 +944,7 @@
     window.addEventListener('load', function(event) {
       console.log('call here');
       editorConfig.data.blocks = [
-        {
+        /*{
           "id" : "GEwGAZ9iYK",
           "type" : "paragraph",
           "data" : {
@@ -981,11 +982,24 @@
             "stretched" : false,
             "withBackground" : false
           }
-        }
+        },
+        {
+          "id" : "2VwJ_IHH2M",
+          "type" : "video",
+          "data" : {
+            "videoSrc" : "https://player.vimeo.com/video/728555139"
+          }
+        }*/
       ];
       editorConfig.tools.image.config = {
         uploader: {
           uploadByFile: function (file) {
+            console.log("console.log ", file.size);
+            if (file.size > 54000) {
+              console.log('파일 사이즈는 54000을 초과할수 없습니다.');
+              alert('파일 사이즈는 54000을 초과할수 없습니다.');
+              return;
+            }
             return {
               error: { error: false},
               url: './assets/codex2x.png',
@@ -1022,6 +1036,13 @@
 
       editorConfig.onReady = function() {
         console.log("I'am ready!!!!!!!");
+
+
+        var boxUtil = document.querySelectorAll('.box-util');
+        boxUtil.forEach(function(target) {
+          target.classList.remove('hidden');
+        });
+
         const ceragemToolWrap = document.querySelector('#ceragem-tool-wrap');
         var editorWrap = $(".ce-toolbox").closest('.inner-cont-wrap')[0];
         editorWrap.insertAdjacentHTML('beforeend',ceragemToolWrap.innerHTML);
@@ -1066,8 +1087,15 @@
           const hyperlinkBox = document.querySelector("#movie-layer");
           hyperlinkBox.classList.remove('on');
         });
+
+        document.getElementById("idx_title").focus();
       };
 
+      editorConfig.autofocus = false;
+
+      /*editorConfig.startFocus = function() {
+        document.getElementById("idx_title").focus();
+      }*/
 
       ceragemEditorStart();
     });
@@ -1230,12 +1258,12 @@
 
       /* 비활성화 처리 */
       const selection = document.getSelection();
-      const classList = selection.anchorNode.parentElement.classList;
-      if(Array.from(clssList).includes('ce-paragraph')) {
+      //const classList = selection.anchorNode.parentElement.classList;
+      /*if(Array.from(clssList).includes('ce-paragraph')) {
 
       }else {
 
-      }
+      }*/
 
     })();
 

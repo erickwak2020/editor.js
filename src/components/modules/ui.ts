@@ -141,6 +141,7 @@ export default class UI extends Module<UINodes> {
    * Removes loader when content has loaded
    */
   public removeLoader(): void {
+    console.log('this.nodes ', this.nodes,this.nodes.loader, this.nodes.loader === undefined);
     this.nodes.loader.remove();
     this.nodes.redactor.classList.remove(this.CSS.editorZoneHidden);
   }

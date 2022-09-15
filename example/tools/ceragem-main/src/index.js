@@ -12,6 +12,7 @@ window.editorConfig = {
    */
   holder: 'editorjs',
   autofocus: true,
+  placeholder: '내용을 입력해주세요',
   /**
    * Common Inline Toolbar settings
    * - if true (or not specified), the order from 'tool' property will be used

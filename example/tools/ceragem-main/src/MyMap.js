@@ -3,16 +3,14 @@ import axios from "axios";
 export default class MyMap {
 
   constructor({ data, config, api, readOnly }) {
-    console.log("MyMap constructor ", data);
     console.log(config, api, readOnly);
     this.data = data;
     this.api = api;
-    this.address = {};
   }
 
   static get toolbox() {
     return {
-      title: 'Image',
+      title: '지도',
       icon: '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"\n' +
         '\t viewBox="0 0 360 360" style="enable-background:new 0 0 360 360;" xml:space="preserve">\n' +
         '<g id="XMLID_1088_">\n' +
@@ -71,7 +69,7 @@ export default class MyMap {
     const client_id = 'bh6uk4dbzi';
     const x = self.address.x;
     const y = self.address.y;
-// <img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.141755,37.318835&X-NCP-APIGW-API-KEY-ID={{client_id}}"/>
+    // <img src="https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors?w=300&h=300&center=127.141755,37.318835&X-NCP-APIGW-API-KEY-ID={{client_id}}"/>
     const mapImage = document.createElement('img');
     let src = "https://naveropenapi.apigw.ntruss.com/map-static/v2/raster-cors" + "?" + "w=300&h=300&center=" + x + "," + y + "X-NCP-APIGW-API-KEY-ID=" + client_id;
     mapImage.src = src;

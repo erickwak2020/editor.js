@@ -29,7 +29,9 @@ export default class JustifyCenterInlineTool implements InlineTool {
    */
   public static get sanitize(): SanitizerConfig {
     return {
-      div : {},
+      div : {
+        style: true
+      },
     } as SanitizerConfig;
   }
 

@@ -363,7 +363,7 @@ export default class VideoTool {
     if (response.success && response.file) {
       this.video = response.file;
     } else {
-      this.uploadingFailed('incorrect response: ' + JSON.stringify(response));
+      this.uploadingFailed(response.message);
     }
   }
 
@@ -376,12 +376,12 @@ export default class VideoTool {
    */
   uploadingFailed(errorText) {
     console.log('Video Tool: uploading failed because of', errorText);
-
-    this.api.notifier.show({
+    Core.modal.alert(errorText);
+    /*this.api.notifier.show({
       message: this.api.i18n.t('Couldn’t upload video. Please try another.'),
       style: 'error',
     });
-    this.ui.hidePreloader();
+    this.ui.hidePreloader();*/
   }
 
   /**
